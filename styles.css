@@ -1,0 +1,262 @@
+@media screen and (min-width: 767px) {
+    body{
+        margin:0px;
+        font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+    }
+    h2,h3{
+        color:#3a3a3a;
+    }
+    .center{
+        text-align: center;
+    }
+    header{
+        background-color:#6b8;
+        text-align: center;
+        color: #fff;
+    }
+    header>h1{
+        margin:0px;
+        font-size:32px;
+    }
+    .contents{
+        max-width: 1000px;
+        margin:0 auto;
+        background-color: #f6f6f6;
+        padding:20px;
+    }
+    .center{
+        text-align: center;
+    }
+    .textBox{
+        text-align: center;
+        background-color: #93d9af;
+        width:600px;
+        margin:0 auto;
+        padding: 30px;
+    }
+    .textBox>input{
+        height:60px;
+        font-size:40px;
+        width:calc(100% - 140px);
+        vertical-align: middle;
+        box-sizing: border-box;
+        margin:15px 0 15px 15px;
+        border: solid #fff 2px;
+    }
+    .textBox>button{
+        margin:15px 15px 15px 10px;
+        width:100px;
+        vertical-align: middle;
+    }
+    button{
+        height:60px;
+        background-color:#447758;
+        color:#fff;
+        margin:15px;
+        font-size:25px;
+        border:solid #fff 2px;
+        border-radius: 3px;
+        transition: all 0.3s ease 0s;
+    }
+    button:hover{
+        opacity: 0.7;
+    }
+    .onebutton,.twobutton,.functionbutton{
+        text-align: center;
+    }
+    .twobutton>button{
+        width:calc(50% - 30px);
+    }
+    .onebutton>button{
+        width:calc(50% - 30px);
+    }
+    .subject,.space,.date,.time{
+        margin:1px;
+    }
+    .subject{
+        height:80px;
+        width:80px;
+        background-image: url(hima.png);
+        background-size: contain;
+        display: inline-block;
+    }
+    .space{
+        background-color: #6b8;
+        width:40px;
+        height:40px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .date{
+        background-color: #6b8;
+        height:40px;
+        width:80px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .row{
+        display: block;
+    }
+    .time{
+        background-color: #6b8;
+        height:80px;
+        width:40px;
+        display: inline-block;
+        vertical-align:top;
+    }
+    .timetable{
+        text-align: center;
+    }
+    .functionbutton>button{
+        width:250px;
+    }
+    .candidate{
+        background-color: #fff;
+        border:solid #447758 2px;
+        border-radius: 5px;
+        box-shadow: 2px 2px #ccc;
+        display: inline-block;
+        margin:15px;
+        font-size:20px;
+        transition: all 0.3s ease 0s;
+        padding:5px;
+    }
+    .candidate:hover{
+        background-color: #6b8;
+    }
+}
+@media screen and (max-width: 767px) {
+    body{
+        margin:0px;
+        font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+    }
+    h2,h3{
+        color:#3a3a3a;
+    }
+    .center{
+        text-align: center;
+    }
+    header{
+        background-color:#6b8;
+        text-align: center;
+        color: #fff;
+    }
+    header>h1{
+        margin:0px;
+        font-size:32px;
+    }
+    .contents{
+        margin:0 auto;
+        padding: 10px 0px;
+        background-color: #f6f6f6;
+    }
+    .textBox{
+        text-align: center;
+        background-color: #93d9af;
+        width:100%;
+        margin:0 auto;
+    }
+    .textBox>input{
+        height:60px;
+        font-size:20px;
+        width:calc(100% - 140px);
+        vertical-align: middle;
+        box-sizing: border-box;
+        margin:15px 0 15px 15px;
+        border: solid #fff 2px;
+    }
+    .textBox>button{
+        margin:15px 15px 15px 10px;
+        width:100px;
+        vertical-align: middle;
+    }
+    button{
+        height:60px;
+        background-color:#447758;
+        color:#fff;
+        margin:15px;
+        font-size:15px;
+        border:solid #fff 2px;
+        border-radius: 3px;
+        transition: all 0.3s ease 0s;
+    }
+    button:hover{
+        opacity: 0.7;
+    }
+    .onebutton,.twobutton,.functionbutton{
+        text-align: center;
+    }
+    .twobutton>button{
+        width:calc(50% - 30px);
+    }
+    .onebutton>button{
+        width:calc(50% - 30px);
+    }
+    .subject,.space,.date,.time{
+        margin:0px;
+        background-color: #6b8;
+        border:solid #fff 1px;
+    }
+    .timetable *{ 
+        font-size: 0;
+    }
+    .subject{
+        width:14.28%;
+        background-image: url(hima.png);
+        background-size: contain;
+        display: inline-block;
+        height:100%;
+    }
+    .space{
+        width:20px;
+        display: inline-block;
+        vertical-align: middle;
+        height:30px;
+    }
+    .date{
+        width:14.28%;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 18px;
+        height:30px;
+    }
+    .row{
+        display: block;
+        padding: 0px;
+        margin:1px 0px;
+    }
+    .time{
+        width:20px;
+        font-size: 15px;
+        display: inline-block;
+        vertical-align:top;
+        height:100%;
+    }
+    p,h3,h2,a{
+        margin-right:15px;
+        margin-left:15px;
+    }
+    .timetable{
+        text-align: center;
+    }
+    .functionbutton>button{
+        width:250px;
+    }
+    .candidate{
+        background-color: #fff;
+        border:solid #447758 2px;
+        border-radius: 5px;
+        box-shadow: 2px 2px #ccc;
+        display: inline-block;
+        margin:15px;
+        font-size:20px;
+        transition: all 0.3s ease 0s;
+        padding:5px;
+    }
+    .candidate:hover{
+        background-color: #6b8;
+    }
+    img{
+        display: none;
+    }
+}

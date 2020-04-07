@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>timetable2</title>
+        <link rel=stylesheet href=styles.css>
+        <script type="text/javascript" src=result.js ></script>
+        <meta name="viewport" content="width=device-width, initial=1.0" />
+    </head>
+    <body>
+        <header>
+            <h1 class="title">暫定候補</h1>
+        </header>
+        <div class="contents">
+            <div class="twobutton">
+            <button class="goHome"onclick="backHome()">最初に戻る</button><button class="history"onclick="goHistory()">提出履歴を表示</button>
+            </div>
+        <h3 id="candidate0">現時点で提出済みの時間割から、全員が来れる候補を表示しています<br>クリックで誰が来れるかを表示します</h3>
+        <script type=text/javascript>
+            function backHome(){
+                location.href="index.html";
+            }
+            function goHistory(){
+                location.href="history.php?rand="+Math.random().toString(32).substring(2);
+            }
+        </script>
+        </div>
+    </body>
+</html>

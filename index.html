@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>2020年度会議調整</title>
+        <meta charset="utf-8">
+        <link rel=stylesheet href="styles.css">
+        <meta name="viewport" content="width=device-width, initial=1.0" />
+        <script type=text/javascript src="ad.js"></script>
+        <script type="text/javascript">
+            window.onload = function(){
+                ASSET_DIR = " ";
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1 class="title">Timetable Manager</h1>
+        </header>
+        <div class="contents">
+        <p class="center">今年度の週会議の日程をきめるので、皆の時間割を教えてください!</p>
+        <div class="textBox">
+            <input onkeypress="keypress()" id="name" placeholder="名前を入力"><button class="buttonOK" onclick="goTimetable()">OK</button>
+            <div class="twobutton">
+                <button class="history" onclick="viewHistory()">提出履歴を見る</button><button onclick="viewResult()" class="available">暫定候補を見る</button>
+            </div>
+            </div>
+            <h3>更新履歴</h3>
+            <p>4月4日</p>
+            <p>　　暫定履歴で既にひとコマのみに該当した時間は以降表示しないように変更</p>
+            <p>　　デザインの改修</p>
+            <p>無料サーバーを使ってるのでスマホからの閲覧は広告が表示されると思います</p>
+        </div>
+        <script type=text/javascript>
+            function keypress(){
+                if( window.event.keyCode == 13 ){
+                  goTimetable();
+                }
+            }
+            function goTimetable(){
+                var humanName=document.getElementById("name").value;
+                if(!humanName){
+                    humanName="Anonymous-"+Math.random().toString(32).substring(2);
+                }
+                const replaced = humanName.replace(/\s+/g, '-');
+                location.href=("./timetable.php?name="+replaced);
+            }
+            function viewHistory(){
+                location.href=("./history.php?rand="+Math.random().toString(32).substring(2));
+                //location.href="link";
+            }
+            function viewResult(){
+                location.href=("./result.html?rand="+Math.random().toString(32).substring(2));
+            }
+        </script>
+    </body>
+</html>
