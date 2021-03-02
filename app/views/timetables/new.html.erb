@@ -24,7 +24,7 @@
     <div class="row">
     <div class="time"><%= @times_str[i]%></div>
     <% col.times do |j|%>
-        <div class="subject"><%= iso_image("subject" + (i * row +  j).to_s) %></div>
+        <div class="subject"><%= iso_image("subject" + (i * col +  j).to_s) %></div>
     <% end %>
     </div>
 <% end %>
@@ -36,4 +36,6 @@
 </div>
 
 <div id='row-col-num' data-json=<%={'row' => row, 'col' => col}.to_json%>></div>
+<div id='iso-url' data-json=<%= asset_url("iso.png").to_json%>></div>
+<div id='hima-url' data-json=<%= asset_url("hima.png").to_json%>></div>
 <%=javascript_pack_tag 'timetables'%>
