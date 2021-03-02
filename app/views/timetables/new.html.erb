@@ -1,0 +1,39 @@
+<h1>New Timetable</h1>
+
+<%= render 'form', timetable: @timetable %>
+
+<%= link_to 'Back', timetables_path %>
+
+<header>
+    <h1 class="title" id="name"><?php echo $_GET['name'] ;?>の時間割</h1>
+</header>
+<div class="contents center">
+<%= go_home_button%>
+<p>暇をクリックしてみよう</p>
+<div class="timetable">
+
+
+
+<% row = @times_str.length%>
+<% col = @dates_str.length - 1%>
+
+<% @dates_str.each do |d| %>
+    <div class="date"><%= d%></div>
+<% end %>
+<% row.times do |i| %>
+    <div class="row">
+    <div class="time"><%= @times_str[i]%></div>
+    <% col.times do |j|%>
+        <div class="subject"><%= iso_image("subject" + (i * row +  j).to_s) %></div>
+    <% end %>
+    </div>
+<% end %>
+
+</div>
+<div class="functionbutton">
+    <button  class="buttonSubmit" id='submit'>提出</button>
+</div>
+</div>
+
+<div id='row-col-num' data-json=<%={'row' => row, 'col' => col}.to_json%>></div>
+<%=javascript_pack_tag 'timetables'%>
