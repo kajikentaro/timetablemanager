@@ -21,15 +21,14 @@
         </script>
         <div></div>
         <?php
-            $fp = fopen("everyone.txt","r");
-            $lineNumber = 0;
-            while($line = fgets($fp)){
-                $data = explode(" ",$line);
-                $timeTable = "";
-                for($i = 0 ; $i < 36 ; $i++){
-                    $timeTable = $timeTable.$data[$i]." ";
-                }
-                echo "<a href='./human.php?lineNumber=$lineNumber&humanName=$data[36]&timeTable=$timeTable'>$data[36]</a><p> </p>";
+    $url = parse_url(getenv('DATABASE_URL'));
+    $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
+    $pdo = new PDO($dsn, $url['user'], $url['pass']);
+    $name = $_GET['name'];$data = $_GET['data'];
+    $query="SELECT * FROM timetable";
+    $response = $pdo->query($query);
+            foreach($response as $record){
+                echo "<a href='./human.php?id={$record[id]}&humanName={$record[name]}&timeTable={$record[data]}'>$record[name]</a><p> </p>";
                 $lineNumber++;
             }
             fclose($fp);

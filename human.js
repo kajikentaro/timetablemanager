@@ -2,7 +2,7 @@ var max=36;
 var timetable=getParams("timeTable").split(" ");
 function subclick(n){
     var request =  createXmlHttpRequest();
-    request.open('GET', './getAvailablePeople.php?classNumber='+n);
+    request.open('GET', './getAvailablePeople.php?classNumber='+(n-1));
     request.addEventListener('load', function (response) {
         alert("この時間に来れる人は、\n"+this.responseText);
     });
@@ -16,7 +16,7 @@ function getParams(key){
 function mydelete(){
     if(window.confirm(getParams("humanName")+"を削除してもよろしいですか？")==true){
         var request =  createXmlHttpRequest();
-        request.open('GET', './delete.php?lineNumber='+getParams("lineNumber"));
+        request.open('GET', './delete.php?id='+getParams("id"));
         request.addEventListener('load', function (response) {
             alert("削除しました");
             location.href="./index.html";
@@ -25,7 +25,7 @@ function mydelete(){
     }
 }
 var setSubjectSize=function(){
-    if(window.parent.screen.width<767){
+    if(document.body.clientWidth<767){
     var width=document.getElementById("sub1").getBoundingClientRect().width;
     for(var i=1;i<=6;i++){
         document.getElementById("row"+i).style.height=width+"px";

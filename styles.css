@@ -192,7 +192,11 @@
     .onebutton>button{
         width:calc(50% - 30px);
     }
-    .subject,.space,.date,.time{
+    .subject{
+        margin:0px;
+        border:solid #fff 1px;
+    }
+    .space,.date,.time{
         margin:0px;
         background-color: #6b8;
         border:solid #fff 1px;

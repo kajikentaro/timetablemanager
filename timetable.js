@@ -4,7 +4,7 @@ for(var i=0;i<max;i++){
     timetable[i]=1;
 }
 var setSubjectSize=function(){
-    if(window.parent.screen.width<767){
+    if(document.body.clientWidth<767){
     var width=document.getElementById("sub1").getBoundingClientRect().width;
     for(var i=1;i<=6;i++){
         document.getElementById("row"+i).style.height=width+"px";
@@ -26,8 +26,6 @@ function printTable(){
     for(var i=0;i<max;i++){
         output+=timetable[i]+" ";
     }
-    var name = getParams("name");
-    output+=name;
     return output;
 }
 function submit(){
@@ -61,7 +59,8 @@ function createXmlHttpRequest()
 }
 function writeData(data){
     var request =  createXmlHttpRequest();
-    request.open('GET', './write.php?data='+data);
+    var name = getParams("name");
+    request.open('GET', `./write.php?data=${data}&name=${name}`);
     request.addEventListener('load', function (response) {
         console.log(this.response);
         location.href="result.html?rand="+Math.random().toString(32).substring(2);

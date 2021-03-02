@@ -13,7 +13,7 @@
     </head>
     <body>
         <header>
-            <h1 class="title">Timetable Manager</h1>
+            <h1 class="title">Timetable Manager v2</h1>
         </header>
         <div class="contents">
         <p class="center">今年度の週会議の日程をきめるので、皆の時間割を教えてください!</p>
@@ -22,20 +22,31 @@
             <div class="twobutton">
                 <button class="history" onclick="viewHistory()">提出履歴を見る</button><button onclick="viewResult()" class="available">暫定候補を見る</button>
             </div>
+            <div class="onebutton">
+                <button class="history" onclick="viewDistribution()">分布を見る</button>
             </div>
-            <h3>更新履歴</h3>
-            <p>4月4日</p>
-            <p>　　暫定履歴で既にひとコマのみに該当した時間は以降表示しないように変更</p>
-            <p>　　デザインの改修</p>
-	    <p><del>無料サーバーを使ってるのでスマホからの閲覧は広告が表示されると思います</del></p>
+        </div>
+        <h3>更新履歴</h3>
+        <p>4月4日</p>
+        <p>　　暫定履歴で既にひとコマのみに該当した時間は以降表示しないように変更</p>
+        <p>　　デザインの改修</p>
+	    <p>　　<del>無料サーバーを使ってるのでスマホからの閲覧は広告が表示されると思います</del></p>
 	    <p>4月7日</p>
 	    <p>　　サーバーの変更</p>
+	    <p>5月1日</p>
+	    <p>　　バグ修理</p>
+	    <p>5月4日</p>
+	    <p>　　バグ修理</p>
+	    <p>　　分布機能追加</p>
         </div>
         <script type=text/javascript>
             function keypress(){
                 if( window.event.keyCode == 13 ){
                   goTimetable();
                 }
+            }
+            function viewDistribution(){
+                location.href=("./distribution.php?rand="+Math.random().toString(32).substring(2));
             }
             function goTimetable(){
                 var humanName=document.getElementById("name").value;

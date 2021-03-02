@@ -23,7 +23,7 @@ function getParams(key){
 }
 window.onload = function(){
     var request =  createXmlHttpRequest();
-    request.open('GET', './everyone.txt');
+    request.open('GET', './everyone.php');
     request.addEventListener('load', function (response) {
         var rows = request.responseText.split("\n");
         var a= new Array();
