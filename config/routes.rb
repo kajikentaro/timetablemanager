@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'timetables/home'
+  get 'timetables/result'
   post 'timetables/create'
   resources :tmps
   resources :timetables

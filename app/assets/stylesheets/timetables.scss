@@ -14,7 +14,13 @@
         opacity: 0.7;
     }
 }
-.go-home{
+form{
+    display:inline;
+}
+.full{
+    width:calc(50% - 30px);
+}
+.half{
     width:calc(50% - 30px);
 }
 .name-form{

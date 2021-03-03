@@ -1,5 +1,11 @@
 class TimetablesController < ApplicationController
   before_action :set_timetable, only: %i[ show edit update destroy ]
+  def result
+    @timetables = []
+    Timetable.find_each do |tt|
+      @timetables.push(tt.attributes)
+    end
+  end
 
   def home
   end
@@ -39,7 +45,6 @@ class TimetablesController < ApplicationController
   # POST /timetables or /timetables.json
   def create
     @timetable = Timetable.new(convHash)
-
     respond_to do |format|
       if @timetable.save
         format.html { redirect_to @timetable, notice: "Timetable was successfully created." }
@@ -86,9 +91,7 @@ class TimetablesController < ApplicationController
     
     def convHash
       input = request.body.read
-      puts("input:::::", input)
       tmp = JSON.parse(input, symbolize_names:true)
-      puts("converting:::::", tmp)
       return tmp
     end
 end
