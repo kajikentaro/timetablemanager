@@ -15,11 +15,9 @@
         <div class="contents">
         <p class="center">今年度の週会議の日程をきめるので、皆の時間割を教えてください!</p>
         <div class="textBox">
-            <%= form_with url: 'new', method: :get do |form|%>
-              <%= form.text_field :name%>
-              <%= form.submit "OK"%>
-            <% end%>>
-            <input onkeypress="keypress()" id="name" placeholder="名前を入力"><button class="buttonOK" onclick="goTimetable()">OK</button>
+            <%= form_with url: 'new', method: :get, class: 'name-form' do |form|%>
+              <%= form.text_field :name, {class: 'name-field', placeholder: '名前を入力'}%><%= form.submit "OK" ,class: "button submit-name"%>
+            <% end%>
             <div class="twobutton">
                 <button class="history" onclick="viewHistory()">提出履歴を見る</button><button onclick="viewResult()" class="available">暫定候補を見る</button>
             </div>
