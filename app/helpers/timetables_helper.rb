@@ -12,7 +12,11 @@ module TimetablesHelper
     end
 
     def view_history_half
-        return button_to "提出履歴を表示", {controller: 'timetables', action: 'home'}, {method: :get, params:{num1:'fromTM'},class: 'button half'}
+        return button_to "提出一覧を見る", {controller: 'timetables', action: 'history'}, {method: :get, params:{num1:'fromTM'},class: 'button half'}
+    end
+
+    def view_result_half
+        return button_to "候補を見る", {controller: 'timetables', action: 'result'}, {method: :get, params:{num1:'fromTM'},class: 'button half'}
     end
 
 end

@@ -1,0 +1,10 @@
+<table><tbody>
+<% @timetables.each do |timetable| %>
+  <div id='member'>
+    <td><%= timetable.name %></td>
+    <td><%= link_to 'Show', timetable %></td>
+    <td><%= link_to 'Edit', edit_timetable_path(timetable) %></td>
+    <td><%= link_to 'Delete',timetable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </div>
+</tbody></table>
+<% end %>

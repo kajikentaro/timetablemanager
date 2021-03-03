@@ -1,17 +1,19 @@
 class TimetablesController < ApplicationController
   before_action :set_timetable, only: %i[ show edit update destroy ]
   def result
-    @timetables = []
-    Timetable.find_each do |tt|
-      @timetables.push(tt.attributes)
-    end
+    @timetables = Timetable.all
+  end
+
+  def history
+    @timetables = Timetable.all
   end
 
   def home
   end
   # GET /timetables or /timetables.json
   def index
-    @timetables = Timetable.all
+    #@timetables = Timetable.all
+    render template: 'timetables/home'
   end
 
   # GET /timetables/1 or /timetables/1.json
