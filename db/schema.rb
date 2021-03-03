@@ -10,16 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_02_074228) do
+ActiveRecord::Schema.define(version: 2021_03_03_045850) do
 
   create_table "timetables", force: :cascade do |t|
+    t.string "name"
+    t.string "timetable"
+    t.integer "row"
+    t.integer "col"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "titles", force: :cascade do |t|
+  create_table "tmps", force: :cascade do |t|
     t.string "name"
-    t.date "sales_date"
+    t.integer "age"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

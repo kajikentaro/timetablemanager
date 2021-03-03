@@ -3,10 +3,12 @@ var hima_url;
 var iso_url;
 var row;
 var col;
+var username;
 window.onload = ()=>{
     var row_col_num = JSON.parse(document.getElementById('row-col-num').dataset.json);
     iso_url = JSON.parse(document.getElementById('iso-url').dataset.json);
     hima_url = JSON.parse(document.getElementById('hima-url').dataset.json);
+    username = JSON.parse(document.getElementById('username').dataset.json);
     row = row_col_num.row;
     col = row_col_num.col;
     for(var i=0;i<row*col;i++){
@@ -24,10 +26,11 @@ window.onload = ()=>{
     }
 }
 $("#submit").on('click',function(){
+    set_csrftoken();
 $.ajax({
-    url: "1/edit",
-    type: "GET",
-    data: {timetable: subject_elements, row: row, col: col},
+    url: "create",
+    type: "POST",
+    data: JSON.stringify({name:username, timetable: subject_elements, row: row, col: col}),
     datatype: "html",
     success: function(data){
     //成功時の処理
@@ -39,3 +42,16 @@ $.ajax({
     }
 });
 });
+/**
+ * CSRFトークンを取得・セット
+ */
+function set_csrftoken() {
+    $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+        if (!options.crossDomain) {
+            const token = $('meta[name="csrf-token"]').attr('content');
+            if (token) {
+                return jqXHR.setRequestHeader('X-CSRF-Token', token);
+            }
+        }
+    });
+}

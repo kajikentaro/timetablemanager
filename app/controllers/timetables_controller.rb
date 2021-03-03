@@ -1,6 +1,8 @@
 class TimetablesController < ApplicationController
   before_action :set_timetable, only: %i[ show edit update destroy ]
 
+  def home
+  end
   # GET /timetables or /timetables.json
   def index
     @timetables = Timetable.all
@@ -10,9 +12,14 @@ class TimetablesController < ApplicationController
   def show
   end
 
+  def newpost
+    format.html {redirect_to 'new' }
+    #new(params['name'])
+  end
   # GET /timetables/new
   def new
     @timetable = Timetable.new
+    @timetable.name = params[:name]
     @dates_str = ['','月','火','水','木','金','土','日']
     @times_str = [
     "1 <br> 9:00  <br> 10:40".html_safe,
@@ -31,7 +38,7 @@ class TimetablesController < ApplicationController
 
   # POST /timetables or /timetables.json
   def create
-    @timetable = Timetable.new(timetable_params)
+    @timetable = Timetable.new(convHash)
 
     respond_to do |format|
       if @timetable.save
@@ -75,5 +82,13 @@ class TimetablesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def timetable_params
       params.fetch(:timetable, {})
+    end
+    
+    def convHash
+      input = request.body.read
+      puts("input:::::", input)
+      tmp = JSON.parse(input, symbolize_names:true)
+      puts("converting:::::", tmp)
+      return tmp
     end
 end
