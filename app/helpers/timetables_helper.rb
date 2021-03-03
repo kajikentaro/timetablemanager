@@ -19,4 +19,8 @@ module TimetablesHelper
         return button_to "候補を見る", {controller: 'timetables', action: 'result'}, {method: :get, params:{num1:'fromTM'},class: 'button half'}
     end
 
+    def view_history_half_back
+        return button_to "前の画面へ戻る", {controller: 'timetables', action: 'history'}, {method: :get, params:{num1:'fromTM'},class: 'button half'}
+    end
+
 end

@@ -1,6 +1,9 @@
-<h1>Editing Timetable</h1>
+<div class='center'>
+<%= view_history_half_back%>
+<p><%= @timetable.name%> さんの提出を編集しています</p>
 
-<%= render 'form', timetable: @timetable %>
+<%=render partial:'timetable'%>
 
-<%= link_to 'Show', @timetable %> |
-<%= link_to 'Back', timetables_path %>
+<div class="functionbutton">
+    <button  class="buttonSubmit" id='submit'>更新</button>
+</div>

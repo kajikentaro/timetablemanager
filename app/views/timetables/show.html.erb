@@ -1,4 +1,5 @@
-<p id="notice"><%= notice %></p>
+<div class='center'>
+<%= view_history_half_back%>
+<p><%= @timetable.name%> さんの提出を表示しています</p>
 
-<%= link_to 'Edit', edit_timetable_path(@timetable) %> |
-<%= link_to 'Back', timetables_path %>
+<%=render partial:'timetable'%>

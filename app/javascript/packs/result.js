@@ -24,7 +24,7 @@ function getParams(key){
     var data = params.get(key);
     return data;
 }
-function setTT(){
+function setTTs(){
     timetables = document.getElementById('timetables').dataset.json;
     timetables = JSON.parse(timetables);
     timetables.forEach(e => {
@@ -83,7 +83,7 @@ function calcTwice(){
     }
 }
 window.onload = ()=>{
-    setTT();
+    setTTs();
     calcOnce();
     calcTwice();
     /*

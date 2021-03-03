@@ -10,6 +10,7 @@
     border:solid #fff 2px;
     border-radius: 3px;
     transition: all 0.3s ease 0s;
+    text-align:center;
     &:hover{
         opacity: 0.7;
     }
@@ -37,5 +38,21 @@ form{
         margin:15px 15px 15px 10px;
         width:100px;
         vertical-align: middle;
+    }
+}
+.member{
+    margin:0 auto;
+    font-size:19px;
+    width:600px;
+    .row{
+        margin:23px 0px;
+        display:block;
+    }
+    .commands{
+        float:right;
+    }
+    div{
+        display:inline;
+        margin:0 6px;
     }
 }

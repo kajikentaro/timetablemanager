@@ -4,26 +4,46 @@ var iso_url;
 var row;
 var col;
 var username;
-window.onload = ()=>{
+var timetable_obj;
+var changeable;
+function setTT(){
     var row_col_num = JSON.parse(document.getElementById('row-col-num').dataset.json);
     iso_url = JSON.parse(document.getElementById('iso-url').dataset.json);
     hima_url = JSON.parse(document.getElementById('hima-url').dataset.json);
-    username = JSON.parse(document.getElementById('username').dataset.json);
+    timetable_obj = JSON.parse(document.getElementById('timetable').dataset.json);
+    changeable = JSON.parse(document.getElementById('changeable').dataset.json);
+    if(!changeable)timetable_obj.timetable = JSON.parse(timetable_obj.timetable);
+    username = timetable_obj.name;
+    console.log(username, timetable_obj);
     row = row_col_num.row;
     col = row_col_num.col;
+}
+function setImage(sub_no){
+    if(subject_elements[sub_no] == 0)document.getElementById("subject" + sub_no).setAttribute('src',hima_url);
+    if(subject_elements[sub_no] == 1)document.getElementById("subject" + sub_no).setAttribute('src',iso_url);
+}
+function setSub(){
     for(var i=0;i<row*col;i++){
-        subject_elements.push(0);
-        document.getElementById("subject" + i).addEventListener('click',function(){
-            var i_keep = i;
-            var closer = () =>{
-                subject_elements[i_keep]++;
-                subject_elements[i_keep] %= 2;
-                if(subject_elements[i_keep] == 0)document.getElementById("subject" + i_keep).setAttribute('src',hima_url);
-                if(subject_elements[i_keep] == 1)document.getElementById("subject" + i_keep).setAttribute('src',iso_url);
-            }
-            return closer;
-        }());
+        if(changeable){
+            subject_elements.push(0);
+            document.getElementById("subject" + i).addEventListener('click',function(){
+                var i_keep = i;
+                var closer = () =>{
+                    subject_elements[i_keep]++;
+                    subject_elements[i_keep] %= 2;
+                    setImage(i_keep);
+                }
+                return closer;
+            }());
+        }else{
+            subject_elements.push(timetable_obj.timetable[i]);
+            setImage(i);
+        }
     }
+}
+window.onload = ()=>{
+    setTT();
+    setSub();
 }
 $("#submit").on('click',function(){
     set_csrftoken();

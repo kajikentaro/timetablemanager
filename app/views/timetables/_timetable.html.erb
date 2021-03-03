@@ -1,9 +1,5 @@
 <% row = @times_str.length%>
 <% col = @dates_str.length - 1%>
-<div class='center'>
-<%= go_home_button%>
-<h1><%= @timetable.name %></h1>
-<p>暇をクリックしてみよう</p>
 <div class="timetable">
 </div>
     <% @dates_str.each do |d| %>
@@ -18,10 +14,6 @@
     </div>
     <% end %>
 </div>
-<div class="functionbutton">
-    <button  class="buttonSubmit" id='submit'>提出</button>
-</div>
-
 <div id='row-col-num' data-json=<%={'row' => row, 'col' => col}.to_json%>></div>
 <div id='iso-url' data-json=<%= asset_url("iso.png").to_json%>></div>
 <div id='hima-url' data-json=<%= asset_url("hima.png").to_json%>></div>

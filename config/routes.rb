@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'timetables/new'
   get 'timetables/home'
   get 'timetables/result'
   get 'timetables/history'
