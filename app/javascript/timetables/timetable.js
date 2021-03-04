@@ -1,3 +1,4 @@
+import { href } from '@rails/ujs';
 import * as component from 'timetables/component';
 console.log('I am timetable.js');
 var subject_elements = [];
@@ -70,12 +71,15 @@ function setButtonAction(){
                 data: JSON.stringify({name:username, timetable: subject_elements, row: row, col: col}),
                 datatype: "html",
                 success: function(data){
-                //成功時の処理
-                console.log(data);
+                    if(data){
+                        alert("更新しました。");
+                        location.href = "../history";
+                    }else{
+                        alert("サーバーでエラーが発生しました。しばらくたった後にやり直してください。");
+                    }
                 },
                 error: function(data){
-                //失敗時の処理
-                console.log('hello');
+                    alert("送信に失敗しました。しばらくたった後にやり直してください。");
                 }
             });
         }
@@ -90,12 +94,14 @@ function setButtonAction(){
                 data: JSON.stringify({name:username, timetable: subject_elements, row: row, col: col}),
                 datatype: "html",
                 success: function(data){
-                //成功時の処理
-                console.log(data);
+                    if(data){
+                        location.href = "result";
+                    }else{
+                        alert("サーバーでエラーが発生しました。しばらくたった後にやり直してください。");
+                    }
                 },
                 error: function(data){
-                //失敗時の処理
-                console.log('hello');
+                    alert("送信に失敗しました。しばらくたった後にやり直してください。");
                 }
             });
         }

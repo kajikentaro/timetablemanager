@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'timetables/result'
   get 'timetables/history'
   get 'timetables/distribution' 
+  get 'timetables/view_gather'
   post 'timetables/create'
   post 'timetables/update'
   resources :tmps

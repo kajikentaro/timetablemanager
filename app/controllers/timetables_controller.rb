@@ -4,6 +4,10 @@ class TimetablesController < ApplicationController
     @timetables = Timetable.all
   end
 
+  def view_gather
+    @timetables = Timetable.all
+  end
+
   def distribution
     @timetables = Timetable.all
     @dates_str = ['','月','火','水','木','金','土','日']
@@ -92,28 +96,20 @@ class TimetablesController < ApplicationController
   # POST /timetables or /timetables.json
   def create
     @timetable = Timetable.new(convHash)
-    respond_to do |format|
-      if @timetable.save
-        format.html { redirect_to @timetable, notice: "Timetable was successfully created." }
-        format.json { render :show, status: :created, location: @timetable }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @timetable.errors, status: :unprocessable_entity }
-      end
+    if @timetable.save
+      render json: true
+    else
+      render json: false
     end
   end
 
   # PATCH/PUT /timetables/1 or /timetables/1.json
   def update
     @timetable = Timetable.find(params[:id])
-    respond_to do |format|
-      if @timetable.update(timetable_params)
-        format.html { redirect_to @timetable, notice: "Timetable was successfully updated." }
-        format.json { render :show, status: :ok, location: @timetable }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @timetable.errors, status: :unprocessable_entity }
-      end
+    if @timetable.update(convHash)
+      render json: true
+    else
+      render json: false
     end
   end
 
@@ -136,7 +132,7 @@ class TimetablesController < ApplicationController
     def convHash
       input = request.body.read
       tmp = JSON.parse(input, symbolize_names:true)
-      print("!!!!!!!!!!!!",tmp)
+      print("!!!!!!!!!!!!",tmp)                                                                                         
       return tmp
     end
 end
