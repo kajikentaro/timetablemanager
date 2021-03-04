@@ -1,16 +1,19 @@
+<div class='center'>
+<%= view_history_back%>
+
+<div id='timetables' data-json='<%=@timetables.to_json%>'></div>
 <% row = @times_str.length%>
 <% col = @dates_str.length - 1%>
+
 <div class="timetable">
-    <div class="row">
-        <% @dates_str.each do |d| %>
-        <div class="date"><%= d%></div>
-        <% end %>
-</div>
+    <% @dates_str.each do |d| %>
+    <div class="date"><%= d%></div>
+    <% end %>
     <% row.times do |i| %>
     <div class="row">
         <div class="time"><%= @times_str[i]%></div>
         <% col.times do |j|%>
-            <div class="subject"><%= iso_image("subject" + (i * col +  j).to_s) %></div>
+            <div class="subject"><div class="<%= "distribution subject" + (i * col +  j).to_s%>"></div>
         <% end %>
     </div>
     <% end %>
@@ -21,3 +24,4 @@
 <div id='timetable' data-json='<%=@timetable.to_json%>'></div>
 <div id='changeable' data-json='<%=@changeable%>'></div>
 <%=javascript_pack_tag 'timetables'%>
+

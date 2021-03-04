@@ -1,32 +1,4 @@
 @media screen and (min-width: 767px) {
-    body{
-        margin:0px;
-        font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
-    }
-    h2,h3{
-        color:#3a3a3a;
-    }
-    .center{
-        text-align: center;
-    }
-    header{
-        background-color:#6b8;
-        text-align: center;
-        color: #fff;
-    }
-    header>h1{
-        margin:0px;
-        font-size:32px;
-    }
-    .contents{
-        max-width: 1000px;
-        margin:0 auto;
-        background-color: #f6f6f6;
-        padding:20px;
-    }
-    .center{
-        text-align: center;
-    }
     .textBox{
         text-align: center;
         background-color: #93d9af;

@@ -17,27 +17,63 @@
 }
 form{
     display:inline;
+    margin: 0 auto;
 }
 .full{
     width:calc(50% - 30px);
 }
 .half{
-    width:calc(50% - 30px);
+    width:calc(30% - 30px);
 }
-.name-form{
-    > .name-field{
-        height:60px;
-        font-size:40px;
-        width:calc(100% - 140px);
-        vertical-align: middle;
-        box-sizing: border-box;
-        margin:15px 0 15px 15px;
-        border: solid #fff 2px;
+.textBox{
+    text-align: center;
+    background-color: #93d9af;
+    width:600px;
+    margin:0 auto;
+    padding: 30px;
+    .name-form{
+        > .name-field{
+            height:60px;
+            font-size:40px;
+            width:calc(100% - 140px);
+            vertical-align: middle;
+            box-sizing: border-box;
+            margin:15px 0 15px 15px;
+            border: solid #fff 2px;
+        }
+        > .submit-name{
+            margin:15px 15px 15px 10px;
+            width:100px;
+            vertical-align: middle;
+        }
     }
-    > .submit-name{
-        margin:15px 15px 15px 10px;
-        width:100px;
-        vertical-align: middle;
+}
+.timetable{
+    text-align: center;
+    .row{
+        font-size:0px;
+        display: block;
+    }
+    .subject, .time, .date, img{
+        font-size:15px;
+        margin:1px;
+        vertical-align:bottom;
+    }
+    .subject{
+        display:inline;
+    }
+    .date{
+        background-color: #6b8;
+        height:40px;
+        width:80px;
+        display: inline-block;
+        margin:2px;
+    }
+    .time{
+        background-color: #6b8;
+        height:80px;
+        width:80px;
+        display: inline-block;
     }
 }
 .member{
@@ -54,5 +90,19 @@ form{
     div{
         display:inline;
         margin:0 6px;
+    }
+}
+.candidate{
+    background-color: #fff;
+    border:solid #447758 2px;
+    border-radius: 5px;
+    box-shadow: 2px 2px #ccc;
+    display: inline-block;
+    margin:15px;
+    font-size:20px;
+    transition: all 0.3s ease 0s;
+    padding:5px;
+    &:hover{
+        background-color: #6b8;
     }
 }

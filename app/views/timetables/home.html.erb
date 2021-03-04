@@ -18,7 +18,7 @@
             <%= form_with url: 'new', method: :get, class: 'name-form' do |form|%>
               <%= form.text_field :name, {class: 'name-field', placeholder: '名前を入力'}%><%= form.submit "OK" ,class: "button submit-name"%>
             <% end%>
-            <%= view_history_half%><%= view_result_half%>
+            <%= view_history%><%= view_result%>
             <div class="onebutton">
                 <button class="history" onclick="viewDistribution()">分布を見る</button>
             </div>

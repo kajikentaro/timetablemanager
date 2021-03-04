@@ -7,20 +7,17 @@ module TimetablesHelper
         return button_to "最初に戻る", {controller: 'timetables', action: 'home'}, {method: :get, params:{num1:'fromTM'},class: 'button full'}
     end
 
-    def go_home_button_half
-        return button_to "最初に戻る", {controller: 'timetables', action: 'home'}, {method: :get, params:{num1:'fromTM'},class: 'button half'}
+    def view_history
+        return button_to "提出一覧を見る", {controller: 'timetables', action: 'history'}, {method: :get, params:{num1:'fromTM'},class: 'button full'}
     end
 
-    def view_history_half
-        return button_to "提出一覧を見る", {controller: 'timetables', action: 'history'}, {method: :get, params:{num1:'fromTM'},class: 'button half'}
+    def view_result
+        return button_to "候補を見る", {controller: 'timetables', action: 'result'}, {method: :get, params:{num1:'fromTM'},class: 'button full'}
     end
 
-    def view_result_half
-        return button_to "候補を見る", {controller: 'timetables', action: 'result'}, {method: :get, params:{num1:'fromTM'},class: 'button half'}
+    def view_history_back
+        return button_to "前の画面へ戻る", {controller: 'timetables', action: 'history'}, {method: :get, params:{num1:'fromTM'},class: 'button full'}
     end
 
-    def view_history_half_back
-        return button_to "前の画面へ戻る", {controller: 'timetables', action: 'history'}, {method: :get, params:{num1:'fromTM'},class: 'button half'}
-    end
 
 end

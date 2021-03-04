@@ -4,6 +4,21 @@ class TimetablesController < ApplicationController
     @timetables = Timetable.all
   end
 
+  def distribution
+    @timetables = Timetable.all
+    @dates_str = ['','月','火','水','木','金','土','日']
+    #@changeable = false
+    @times_str = [
+    "1 <br> 9:00  <br> 10:40".html_safe,
+    "2 <br> 10:50 <br> 12:30".html_safe,
+    "3 <br> 13:20 <br> 15:00".html_safe,
+    "4 <br> 15:10 <br> 16:50".html_safe,
+    "5 <br> 17:00 <br> 18:40".html_safe,
+    "6 <br> 18:50 <br> 20:30".html_safe,
+    "7 <br> 20:40 <br> 22:20".html_safe
+    ]
+  end
+
   def history
     @timetables = Timetable.all
   end
