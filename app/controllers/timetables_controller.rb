@@ -6,6 +6,7 @@ class TimetablesController < ApplicationController
 
   def view_gather
     @timetables = Timetable.all
+    @class_num = params[:id]
   end
 
   def distribution
