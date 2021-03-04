@@ -19,5 +19,7 @@ module TimetablesHelper
         return button_to "前の画面へ戻る", {controller: 'timetables', action: 'history'}, {method: :get, params:{num1:'fromTM'},class: 'button full'}
     end
 
-
+    def view_distribution
+        return button_to "分布を見る", {controller: 'timetables', action: 'distribution'}, {method: :get, params:{num1:'fromTM'},class: 'button full'}
+    end
 end

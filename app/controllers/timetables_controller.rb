@@ -1,5 +1,5 @@
 class TimetablesController < ApplicationController
-  before_action :set_timetable, only: %i[ show edit update destroy ]
+  #before_action :set_timetable, only: %i[ show edit update destroy ]
   def result
     @timetables = Timetable.all
   end
@@ -55,7 +55,11 @@ class TimetablesController < ApplicationController
   # GET /timetables/new
   def new
     @timetable = Timetable.new
-    @timetable.name = params[:name]
+    if params[:name] == ""
+      @timetable.name = "名無しさん@お腹いっぱい。"
+    else
+      @timetable.name = params[:name]
+    end
     @changeable = true
     @dates_str = ['','月','火','水','木','金','土','日']
     @times_str = [
@@ -101,6 +105,7 @@ class TimetablesController < ApplicationController
 
   # PATCH/PUT /timetables/1 or /timetables/1.json
   def update
+    @timetable = Timetable.find(params[:id])
     respond_to do |format|
       if @timetable.update(timetable_params)
         format.html { redirect_to @timetable, notice: "Timetable was successfully updated." }
@@ -116,16 +121,12 @@ class TimetablesController < ApplicationController
   def destroy
     @timetable.destroy
     respond_to do |format|
-      format.html { redirect_to timetables_url, notice: "Timetable was successfully destroyed." }
+      format.html { redirect_to action: 'history', notice: "Timetable was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_timetable
-      @timetable = Timetable.find(params[:id])
-    end
 
     # Only allow a list of trusted parameters through.
     def timetable_params
@@ -135,6 +136,7 @@ class TimetablesController < ApplicationController
     def convHash
       input = request.body.read
       tmp = JSON.parse(input, symbolize_names:true)
+      print("!!!!!!!!!!!!",tmp)
       return tmp
     end
 end

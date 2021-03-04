@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   get 'timetables/home'
   get 'timetables/result'
   get 'timetables/history'
-  get 'timetables/distribution'
+  get 'timetables/distribution' 
   post 'timetables/create'
+  post 'timetables/update'
   resources :tmps
   resources :timetables
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

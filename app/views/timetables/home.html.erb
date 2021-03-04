@@ -19,9 +19,7 @@
               <%= form.text_field :name, {class: 'name-field', placeholder: '名前を入力'}%><%= form.submit "OK" ,class: "button submit-name"%>
             <% end%>
             <%= view_history%><%= view_result%>
-            <div class="onebutton">
-                <button class="history" onclick="viewDistribution()">分布を見る</button>
-            </div>
+            <%= view_distribution%>
         </div>
         <h3>更新履歴</h3>
         <p>4月4日</p>

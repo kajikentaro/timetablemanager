@@ -1,11 +1,4 @@
 @media screen and (min-width: 767px) {
-    .textBox{
-        text-align: center;
-        background-color: #93d9af;
-        width:600px;
-        margin:0 auto;
-        padding: 30px;
-    }
     .textBox>input{
         height:60px;
         font-size:40px;
@@ -42,42 +35,12 @@
     .onebutton>button{
         width:calc(50% - 30px);
     }
-    .subject,.space,.date,.time{
-        margin:1px;
-    }
-    .subject{
-        height:80px;
-        width:80px;
-        background-image: url(hima.png);
-        background-size: contain;
-        display: inline-block;
-    }
     .space{
         background-color: #6b8;
         width:40px;
         height:40px;
         display: inline-block;
         vertical-align: middle;
-    }
-    .date{
-        background-color: #6b8;
-        height:40px;
-        width:80px;
-        display: inline-block;
-        vertical-align: middle;
-    }
-    .row{
-        display: block;
-    }
-    .time{
-        background-color: #6b8;
-        height:80px;
-        width:40px;
-        display: inline-block;
-        vertical-align:top;
-    }
-    .timetable{
-        text-align: center;
     }
     .functionbutton>button{
         width:250px;

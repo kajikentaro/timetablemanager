@@ -1,3 +1,1 @@
-window.onload = ()=>{
-    document.getElementById('')
-}
+console.log('I am index.js');

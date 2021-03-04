@@ -1,5 +1,5 @@
 <div class='center'>
-<%= view_history_back%>
+<%= go_home_button%>
 
 <p><%= @timetables.length%> 人提出済み</p>
 <p>「暇」の数を表示しています</p>
@@ -29,5 +29,5 @@
 <div id='hima-url' data-json=<%= asset_url("hima.png").to_json%>></div>
 <div id='timetable' data-json='<%=@timetable.to_json%>'></div>
 <div id='changeable' data-json='<%=@changeable%>'></div>
-<%=javascript_pack_tag 'distribution'%>
+<%= javascript_pack_tag 'timetables/distribution'%>
 
