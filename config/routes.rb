@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'timetables/history'
   get 'timetables/distribution' 
   get 'timetables/view_gather/:id', to: 'timetables#view_gather'
+  get 'timetables/view_gather/:id/:id2', to: 'timetables#view_gather2'
   get 'timetables/view_gather', to: 'timetables#home'
   post 'timetables/create'
   post 'timetables/update'

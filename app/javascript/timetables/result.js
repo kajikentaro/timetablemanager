@@ -15,9 +15,13 @@ function calcOnce(){
         if(can){
             n++;
             var new_element = document.createElement("p");
-            new_element.onclick = ()=>{
-                console.log('ppp');
-            };
+            new_element.addEventListener('click',function(){
+                var keep_i = i;
+                var go_view_gather = ()=>{
+                    location.href = "./view_gather/" + keep_i;
+                }
+                return go_view_gather;
+            }());
             new_element.className = 'candidate';
             new_element.innerHTML = component.getClassTime(i,row);
             var anchor = document.getElementById('anchor-once');
@@ -39,9 +43,14 @@ function calcTwice(){
             if(can){
                 n++;
                 var new_element = document.createElement("p");
-                new_element.onclick = ()=>{
-                    console.log('ppp');
-                };
+                new_element.addEventListener('click',function(){
+                    var keep_i = i;
+                    var keep_j = j;
+                    var go_view_gather = ()=>{
+                        location.href = "./view_gather/" + keep_i + "/" + keep_j;
+                    }
+                    return go_view_gather;
+                }());
                 new_element.className = 'candidate';
                 new_element.innerHTML = component.getClassTime(i,row) + '&' + component.getClassTime(j,row);
                 var anchor = document.getElementById('anchor-twice');

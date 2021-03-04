@@ -4,6 +4,12 @@ class TimetablesController < ApplicationController
     @timetables = Timetable.all
   end
 
+  def view_gather2
+    @timetables = Timetable.all
+    @class_num = params[:id]
+    @class_num2 = params[:id2]
+  end
+
   def view_gather
     @timetables = Timetable.all
     @class_num = params[:id]

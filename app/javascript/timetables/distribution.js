@@ -31,6 +31,13 @@ function makeDistribution(){
         var target = document.getElementById('subject'+i);
         target.innerHTML = free_man_table[i];
         target.style.backgroundColor = getColorCode2(free_man_table[i],timetables.length);
+        target.addEventListener('click',function(){
+            var keep_i = i;
+            var go_view_gather = ()=>{
+                location.href = "./view_gather/" + keep_i;
+            }
+            return go_view_gather;
+        }());
     }
 }
 function start(){

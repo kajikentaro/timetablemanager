@@ -1,20 +1,22 @@
 <div id='timetables' data-json='<%=@timetables.to_json%>'></div>
 <div id='class_num' data-json='<%=@class_num%>'></div>
+<div id='class_num2' data-json='<%=@class_num2%>'></div>
 <div class='center'>
 <%=go_home_button%>
 </div>
 <div class='member'>
 <h2 id="message"><%=@class_num%>の参加状況</h2>
-<!--
 <div class="row">
     <div></div>
-    <div class='commands'>じ</div>
-</div>--> 
+    <div class='commands absent-table' id='class2'>-</div>
+    <div class='commands absent-table' id='class1'>-</div>
+</div> 
 <% @timetables.each do |timetable| %>
   <div class="row">
       <div><%= link_to timetable.name, timetable %></div>
-      <div class='commands absent' id="absent" > - </div>
+      <div class='commands absent absent-table' id="absent" > - </div>
+      <div class='commands absent absent-table' id="absent" > - </div>
   </div>
 <% end %>
 </div>
-<%= javascript_pack_tag 'timetables/view_gather'%>
+<%= javascript_pack_tag 'timetables/view_gather2'%>
