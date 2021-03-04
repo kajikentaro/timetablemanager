@@ -22,28 +22,34 @@ function setImage(sub_no){
     if(subject_elements[sub_no] == 0)document.getElementById("subject" + sub_no).setAttribute('src',hima_url);
     if(subject_elements[sub_no] == 1)document.getElementById("subject" + sub_no).setAttribute('src',iso_url);
 }
-function setSub(){
+
+function setSubFix(){
     for(var i=0;i<row*col;i++){
-        if(changeable){
-            subject_elements.push(0);
-            document.getElementById("subject" + i).addEventListener('click',function(){
-                var i_keep = i;
-                var closer = () =>{
-                    subject_elements[i_keep]++;
-                    subject_elements[i_keep] %= 2;
-                    setImage(i_keep);
-                }
-                return closer;
-            }());
-        }else{
-            subject_elements.push(timetable_obj.timetable[i]);
-            setImage(i);
-        }
+        subject_elements.push(timetable_obj.timetable[i]);
+        setImage(i);
+    }
+}
+function setSubChangeable(){
+    for(var i=0;i<row*col;i++){
+        subject_elements.push(0);
+        document.getElementById("subject" + i).addEventListener('click',function(){
+            var i_keep = i;
+            var closer = () =>{
+                subject_elements[i_keep]++;
+                subject_elements[i_keep] %= 2;
+                setImage(i_keep);
+            }
+            return closer;
+        }());
     }
 }
 window.onload = ()=>{
     setTT();
-    setSub();
+    if(changeable){
+        setSubChangeable();
+    }else{
+        setSubFix();
+    }
 }
 $("#submit").on('click',function(){
     set_csrftoken();

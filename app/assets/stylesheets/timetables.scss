@@ -54,26 +54,30 @@ form{
         font-size:0px;
         display: block;
     }
-    .subject, .time, .date, img{
+    .subject, .time, .date{
         font-size:15px;
         margin:1px;
+        height:80px;
+        width:80px;
         vertical-align:bottom;
-    }
-    .subject{
-        display:inline;
+        display:inline-block;
     }
     .date{
         background-color: #6b8;
         height:40px;
-        width:80px;
-        display: inline-block;
-        margin:2px;
     }
     .time{
         background-color: #6b8;
-        height:80px;
-        width:80px;
-        display: inline-block;
+    }
+    .distribution{
+        text-shadow: 1px  1px 0 #fff,
+                    -1px  1px 0 #fff,
+                     1px -1px 0 #fff,
+                    -1px -1px 0 #fff;
+        height:100%;
+        width:100%;
+        font-size: 25px;
+        line-height: 80px;
     }
 }
 .member{

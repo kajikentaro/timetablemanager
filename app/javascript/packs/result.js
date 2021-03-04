@@ -86,57 +86,6 @@ window.onload = ()=>{
     setTTs();
     calcOnce();
     calcTwice();
-    /*
-        var a= new Array();
-        for(var i=0;i<rows.length-1;i++){
-            a[i]=rows[i].split(" ");
-        }
-        var displaied=new Array();
-        for(i=0;i<36;i++){
-                var flag=true;
-                displaied[i]=1;
-                for(var k=0;k<rows.length-1;k++){
-                    if(a[k][i]==0){
-                        flag=false;
-                        displaied[i]=0;
-                        break;
-                    }
-                }
-                if(flag==true){
-                    candidate++;
-                }
-        }
-        onceCandidate=candidate;
-        for(i=0;i<35;i++){
-            for(var j=i+1;j<36;j++){
-                if(displaied[i]==1||displaied[j]==1){
-                    break;
-                }
-                var flag=true;
-                for(var k=0;k<rows.length-1;k++){
-                    if(a[k][i]+a[k][j]==0){
-                        flag=false;
-                        break;
-                    }
-                }
-                if(flag==true){
-                    myinsert('candidate'+candidate,'<p onclick="subclick2('+i+','+j+')" class="candidate" id="candidate'+(candidate+1)+'">'+getClassTime(i)+' & '+getClassTime(j)+'</p>');
-                    candidate++;
-                }
-            }
-        }
-        if(candidate>0){
-            myinsert('candidate0','<h3>< ひとコマのみ ></h3>');
-            if(candidate-onceCandidate>0){
-                myinsert('candidate'+onceCandidate,'<h3>< ふたコマ ></h3>');
-            }
-        }else if(onceCandidate==0){
-            myinsert('candidate0','<h3>ひとコマのみは不可能でした<br>< ふたコマ ></h3>');
-        }else{
-            myinsert('candidate0','<h3>ひとコマ、ふたコマでは不可能でした</h3>');
-        }
-    request.send();
-    */
 }
 function getClassTime(number, row){
     var output="";
@@ -166,15 +115,6 @@ function getClassTime(number, row){
     output+=Math.floor(number/6+1)+"限";
     return output;
 }
-function testclick(){
-    document.getElementById("waiting-div").style.display="none";
-}
-function myinsert(beforeId,element){
-    document.getElementById(beforeId).insertAdjacentHTML('afterend',element);
-}
-
-
-
 $("#submit").on('click',function(){
     set_csrftoken();
 $.ajax({

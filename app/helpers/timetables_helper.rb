@@ -1,6 +1,6 @@
 module TimetablesHelper
     def iso_image(id)
-        return image_tag 'hima.png', :width => '80', :height => '80', :id => id
+        return image_tag 'hima.png', :width => '100%', :height => '100%', :id => id
     end
 
     def go_home_button
