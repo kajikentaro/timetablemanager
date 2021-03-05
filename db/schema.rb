@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_045850) do
+ActiveRecord::Schema.define(version: 2021_03_05_125111) do
+
+  create_table "parties", force: :cascade do |t|
+    t.string "name"
+    t.string "dates"
+    t.string "times"
+    t.string "groups"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "timetables", force: :cascade do |t|
     t.string "name"
