@@ -1,5 +1,57 @@
-<h1>New Party</h1>
+<div class='center'>
+<% row = @times_str.length%>
+<% col = @dates_str.length - 1%>
+<p>暇をクリックしてみよう</p>
 
-<%= render 'form', party: @party %>
 
-<%= link_to 'Back', parties_path %>
+<div class="timetable-make" id='timetable-make'>
+    <div class="row">
+        <% @dates_str.each_with_index do |d, index| %>
+            <%if index == 0 then%>
+                <div class="date space"></div>
+                <div class="date space"></div>
+            <%else%>
+                <div class="date delete">削除</div>
+            <% end %>
+        <% end %>
+        <div class="date add">追加</div>
+    </div>
+    <div class="row">
+        <% @dates_str.each_with_index do |d, index| %>
+            <%if index == 0 then%>
+                <div class="date space"></div>
+                <div class="date space"></div>
+            <%else%>
+                <textarea class="date input"><%= d%></textarea>
+            <% end %>
+        <% end %>
+        <div class="date space"></div>
+    </div>
+    <% row.times do |i| %>
+    <div class="row">
+        <div class="time delete">削除</div>
+        <textarea class='time input'><%= @times_str[i]%></textarea>
+        <% (col).times do |j|%>
+            <div class="subject active"></div>
+        <% end %>
+            <div class="subject"></div>
+    </div>
+    <% end %>
+
+    <div class="row">
+        <div class="time add">追加</div>
+        <div class="subject"></div>
+        <% (col).times do |j|%>
+            <div class="subject"></div>
+        <% end %>
+            <div class="subject"></div>
+    </div>
+</div>
+<div id='row-col-num' data-json=<%={'row' => row, 'col' => col}.to_json%>></div>
+<div id='iso-url' data-json=<%= asset_url("iso.png").to_json%>></div>
+<div id='hima-url' data-json=<%= asset_url("hima.png").to_json%>></div>
+<div id='timetable' data-json='<%=@timetable.to_json%>'></div>
+<div id='changeable' data-json='<%=@changeable%>'></div>
+<%= javascript_pack_tag 'parties/timetable'%>
+
+

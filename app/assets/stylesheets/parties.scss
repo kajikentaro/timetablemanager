@@ -1,3 +1,40 @@
 // Place all the styles related to the parties controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.timetable-make{
+    text-align: center;
+    .row{
+        font-size:0px;
+        display: block;
+    }
+    textarea{
+        overflow:hidden;
+    }
+    .subject, .time, .date{
+        font-size:15px;
+        margin:1px;
+        height:80px;
+        width:80px;
+        vertical-align:bottom;
+        display:inline-block;
+        box-sizing:border-box;
+    }
+    .active{
+        background-color:#ccc;
+    }
+    .date{
+        height:40px;
+        .delete, .add{
+            line-height: 40px;
+        }
+    }
+    .time{
+        line-height:80px;
+    }
+    .delete{
+        background-color:rgb(225,174,201);
+    }
+    .add{
+        background-color:rgb(146,217,232);
+    }
+}

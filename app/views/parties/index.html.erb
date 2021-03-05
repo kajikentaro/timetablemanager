@@ -1,25 +1,6 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Parties</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @parties.each do |party| %>
-      <tr>
-        <td><%= link_to 'Show', party %></td>
-        <td><%= link_to 'Edit', edit_party_path(party) %></td>
-        <td><%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Party', new_party_path %>
+<p class="center">時間割を提出して管理するアプリ</p>
+<div class="textBox">
+    <%= form_with url: 'parties/new', method: :get, class: 'name-form' do |form|%>
+        <%= form.text_field :name, {class: 'name-field', placeholder: '団体名を入力'}%><%= form.submit "OK" ,class: "button submit-name"%>
+    <% end%>
+</div>
