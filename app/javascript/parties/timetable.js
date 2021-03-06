@@ -1,20 +1,73 @@
+import * as component from 'timetables/component';
 console.log("I am parties/timetable.js");
 window.onload = ()=>{
     start();
+    document.getElementById("submit").onclick = ()=>{
+        if(window.confirm("後から変更出来ませんが、よろしいですか")){
+            submit_TT();
+        }
+    }
+}
+function submit_TT(){
+    var dates_str = [];
+    var times_str = [];
+    var TT = document.getElementById('timetable-make');
+    var rows = TT.getElementsByClassName("row");
+    for(var i=0;i<r;i++){
+        var cols = rows[i].children;
+        for(var j=0;j<c;j++){
+            if(2 <= j && i == 1){
+                dates_str.push(cols[j].innerHTML);
+            }
+            if(2 <= i && j == 1){
+                times_str.push(cols[j].innerHTML);
+            }
+        }
+    }
+
+    var partyname = document.getElementById('username').innerHTML;
+    component.set_csrftoken();
+    $.ajax({
+        url: "./parties",
+        type: "POST",
+        data: JSON.stringify({name:partyname, dates:dates_str,times:times_str}),
+        datatype: "html",
+        success: function(data){
+            console.log(data);
+            if(data){
+                console.log(data);
+                location.href = "parties/" + data + "/start";
+            }else{
+                alert("サーバーでエラーが発生しました。しばらくたった後にやり直してください。");
+            }
+        },
+        error: function(data){
+            console.log(data);
+            alert("送信に失敗しました。しばらくたった後にやり直してください。");
+        }
+    });
 }
 function ope_col(a,b){
     if(b == c - 1){
+        if(c == 10){
+            alert("これ以上追加できません");
+            return;
+        }
         var TT = document.getElementById('timetable-make');
         var rows = TT.getElementsByClassName("row");
         for(var i=0;i<r;i++){
             var cols = rows[i].children;
             for(var j=0;j<c;j++){
-                if(j == r-3){
-                    rows[i].insertBefore(cols[j].cloneNode(true), cols[j]);
+                if(j == c-2){
+                    rows[i].insertBefore(cols[j].cloneNode(true), cols[j+1]);
                 }
             }
         }
     }else{
+        if(c == 4){
+            alert("削除できません");
+            return;
+        }
         var TT = document.getElementById('timetable-make');
         var rows = TT.getElementsByClassName("row");
         for(var i=0;i<r;i++){
@@ -29,11 +82,19 @@ function ope_col(a,b){
 function ope_row(a,b){
     if(a == r - 1){
         //add
+        if(r == 20){
+            alert("これ以上追加できません");
+            return;
+        }
         var TT = document.getElementById('timetable-make');
         var rows = TT.getElementsByClassName("row");
         TT.insertBefore(rows[r-2].cloneNode(true), rows[r-1]);
     }else{
         //remove
+        if(r == 4){
+            alert("削除できません");
+            return;
+        }
         var TT = document.getElementById('timetable-make');
         var rows = TT.getElementsByClassName("row");
         for(var i=0;i<r;i++){

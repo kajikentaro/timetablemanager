@@ -3,6 +3,21 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .timetable-make{
     text-align: center;
+    background-color: #ddd;
+    width:80%;
+    padding-bottom: 30px;
+    margin:0 auto;
+    .name-field{
+        display:inline-block;
+        height:40px;
+        font-size:30px;
+        width:calc(60% - 140px);
+        vertical-align: middle;
+        box-sizing: border-box;
+        margin:30px;
+        margin-bottom:40px;
+        border: 1px solid #999;
+    }
     .row{
         font-size:0px;
         display: block;
@@ -14,13 +29,13 @@
         font-size:15px;
         margin:1px;
         height:80px;
-        width:80px;
+        width:50px;
         vertical-align:bottom;
         display:inline-block;
         box-sizing:border-box;
     }
     .active{
-        background-color:#ccc;
+        background-color:#f6f6f6;
     }
     .date{
         height:40px;
@@ -31,10 +46,21 @@
     .time{
         line-height:80px;
     }
+    .input{
+        line-height:15px;
+    }
+    .add, .delete{
+    }
     .delete{
         background-color:rgb(225,174,201);
+        &:hover{
+            opacity:0.6;
+        }
     }
     .add{
         background-color:rgb(146,217,232);
+        &:hover{
+            opacity:0.6;
+        }
     }
 }

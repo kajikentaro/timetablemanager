@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     post 'timetables/update'
     resources :timetables
   end
+  get 'parties/:id/start', to:'parties#start'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #root 'application#hello'
   root 'application#index'

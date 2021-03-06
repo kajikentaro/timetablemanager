@@ -1,0 +1,6 @@
+<p class="center">時間割を提出して管理するアプリ</p>
+<div class="textBox">
+    <%= form_with url: 'parties/new', method: :get, class: 'name-form' do |form|%>
+        <%= form.text_field :name, {class: 'name-field', placeholder: '団体名を入力'}%><%= form.submit "OK" ,class: "button submit-name"%>
+    <% end%>
+</div>
