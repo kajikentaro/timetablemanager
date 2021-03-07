@@ -1,6 +1,58 @@
 // Place all the styles related to the parties controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.url-holder{
+    input{
+        height:60px;
+        font-size:40px;
+        width:calc(90%);
+        vertical-align:bottom;
+        box-sizing: border-box;
+        margin:0 auto;
+        border: solid #fff 0px;
+        background-color:#eee;
+        line-height:25px;
+    }
+}
+.group-make{
+    text-align: center;
+    width:600px;
+    margin:0 auto;
+    .groups-input{
+        margin:10px;
+        height:30px;
+        font-size:20px;
+        box-sizing: border-box;
+    }
+    .row{
+        font-size:0px;
+        display: block;
+    }
+    .delete{
+        background-color:rgb(225,174,201);
+        height:30px;
+        box-sizing: border-box;
+        &:hover{
+            opacity:0.6;
+        }
+    }
+    .add, .apply{
+        height:40px;
+        margin:15px;
+        font-size:25px;
+        border-radius: 3px;
+        transition: all 0.3s ease 0s;
+        text-align:center;
+        line-height:25px;
+        width:calc(25% - 30px);
+
+        background-color:rgb(146,217,232);
+        box-sizing: border-box;
+        &:hover{
+            opacity: 0.7;
+        }
+    }
+}
 .timetable-make{
     text-align: center;
     background-color: #ddd;
@@ -48,8 +100,6 @@
     }
     .input{
         line-height:15px;
-    }
-    .add, .delete{
     }
     .delete{
         background-color:rgb(225,174,201);

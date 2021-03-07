@@ -1,7 +1,9 @@
 class PartiesController < ApplicationController
-  before_action :set_party, only: %i[ show edit update destroy ]
+  before_action :set_party, only: %i[show edit update destroy ]
 
   def start
+      @party = Party.find(params[:id])
+      puts("@!!!!!!!!!",@party.groups)
   end
   # GET /parties or /parties.json
   def index
@@ -63,9 +65,20 @@ class PartiesController < ApplicationController
   end
 
   # PATCH/PUT /parties/1 or /parties/1.json
+  def myupdatetmp
+    respond_to do |format|
+      if @party.update(groups:convHash.groups)
+        format.html { redirect_to @party, notice: "Party was successfully updated." }
+        format.json { render :show, status: :ok, location: @party }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @party.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   def update
     respond_to do |format|
-      if @party.update(party_params)
+      if @party.update(groups:convHash[:groups])
         format.html { redirect_to @party, notice: "Party was successfully updated." }
         format.json { render :show, status: :ok, location: @party }
       else
@@ -97,8 +110,8 @@ class PartiesController < ApplicationController
 
     def convHash
       input = request.body.read
+      print("!!!!!!!!!!!!",request.body.read)                                                                                         
       tmp = JSON.parse(input, symbolize_names:true)
-      print("!!!!!!!!!!!!",tmp)                                                                                         
       return tmp
     end
 end

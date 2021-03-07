@@ -1,6 +1,38 @@
-<p class="center">時間割を提出して管理するアプリ</p>
+<p class="center">あなたの団体の雛形が作成されました</p>
 <div class="textBox">
-    <%= form_with url: 'parties/new', method: :get, class: 'name-form' do |form|%>
-        <%= form.text_field :name, {class: 'name-field', placeholder: '団体名を入力'}%><%= form.submit "OK" ,class: "button submit-name"%>
-    <% end%>
+  <div class='url-holder'>
+    <div class='left'>
+      <h1>提出用ページURL</h1>
+      <p>提出用ページのリンクです。仲間に共有して、時間割を提出してもらいましょう。</p>
+    </div>
+    <input value='aaaa' class='home-url' id='home-url' readonly>
+    <button class='button' id='visit-home-url'>GO</button><button class='button' id='copy-home-url'>コピー</button><button class='button' id='share-home-url'>LINEで共有</button>
+  </div>
 </div>
+<div class='group-make' id='group-make'>
+  <div class='left'>
+    <h1>グループを作成する</h1>
+    <p>団体の中のグループを作成して、あとでフィルタリングすることができます</p>
+  </div>
+  <%if !@party.groups.nil?%>
+    <%JSON.parse(@party.groups).each do |g|%>
+      <div class="row">
+        <input class="groups-input" value=<%=g%>><button class='delete'>削除</button>
+      </div>
+    <%end%>
+  <%end%>
+  <div id='anchor'></div>
+  <div class='row'><button class='add' id='add'>追加</button><button  class="apply" id='apply'>適用</button></div>
+  <div class='url-holder'>
+    <div class='left'>
+      <h1>設定用ページURL</h1>
+      <p>このページへのリンクです。メモしておくことをおすすめします</p>
+    </div>
+    <input value='aaaa' class='home-url' readonly>
+    <button class='button'>GO</button><button class='button'>コピー</button><button class='button' src='https://line.me/R/msg/text/?testmessage'>LINEで共有</button>
+  </div>
+</div>
+<%= javascript_pack_tag 'parties/start'%>
+<div id='home-url-data' data-json=<%=party_timetables_home_path(@party)%>></div>
+<div id='setting-url-data' data-json=<%=request.url%>></div>
+<div id='share-home-url-data' data-json=<%="https://line.me/R/msg/text/?#{party_timetables_home_path(@party)}"%>></div>
