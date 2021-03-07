@@ -6,12 +6,14 @@ class TimetablesController < ApplicationController
   end
 
   def view_gather2
+    @party = Party.where(id: params[:party_id]).first
     @timetables = Timetable.all
     @class_num = params[:id]
     @class_num2 = params[:id2]
   end
 
   def view_gather
+    @party = Party.where(id: params[:party_id]).first
     @timetables = Timetable.all
     @class_num = params[:id]
   end

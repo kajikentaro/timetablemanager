@@ -3,8 +3,7 @@ class CreateTimetables < ActiveRecord::Migration[6.1]
     create_table :timetables do |t|
       t.string :name
       t.string :timetable
-      t.integer :row
-      t.integer :col
+      t.string :group
       t.timestamps
     end
   end

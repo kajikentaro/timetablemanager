@@ -12,7 +12,7 @@
 </div>--> 
 <% @timetables.each do |timetable| %>
   <div class="row">
-      <div><%= link_to timetable.name, timetable %></div>
+      <div><%= link_to timetable.name, party_timetable_path(@party,timetable) %></div>
       <div class='commands absent' id="absent" > - </div>
   </div>
 <% end %>

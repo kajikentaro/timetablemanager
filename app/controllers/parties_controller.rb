@@ -3,8 +3,7 @@ class PartiesController < ApplicationController
   layout 'timetables'
 
   def start
-      @party = Party.find(params[:id])
-      puts("@!!!!!!!!!",@party.groups)
+      @party = Party.find(public_uid: params[:id])
   end
   # GET /parties or /parties.json
   def index

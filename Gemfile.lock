@@ -79,16 +79,13 @@ GEM
     concurrent-ruby (1.1.8)
     crass (1.0.6)
     erubi (1.10.0)
-    ffi (1.14.2)
+    ffi (1.15.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.9)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
-    jquery-turbolinks (2.1.0)
-      railties (>= 3.1.0)
-      turbolinks
     listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -108,6 +105,8 @@ GEM
     nokogiri (1.11.1-x86_64-linux)
       racc (~> 1.4)
     public_suffix (4.0.6)
+    public_uid (2.1.1)
+      activerecord (> 4.2)
     puma (5.2.2)
       nio4r (~> 2.0)
     racc (1.5.2)
@@ -175,9 +174,6 @@ GEM
     sqlite3 (1.4.2)
     thor (1.1.0)
     tilt (2.0.10)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     web-console (4.1.0)
@@ -209,8 +205,8 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   jbuilder (~> 2.7)
-  jquery-turbolinks
   listen (~> 3.3)
+  public_uid
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.1)
@@ -218,7 +214,6 @@ DEPENDENCIES
   selenium-webdriver
   spring
   sqlite3 (~> 1.4)
-  turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
