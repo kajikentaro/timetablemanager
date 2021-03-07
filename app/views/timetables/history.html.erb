@@ -7,9 +7,9 @@
   <div class="row">
     <div class="member-name"><%= timetable.name %></div>
     <div class='commands'>
-      <div><%= link_to '見る', timetable %></div>
-      <div><%= link_to '編集', edit_timetable_path(timetable) %></div>
-      <div><%= link_to '削除',timetable, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      <div><%= link_to '見る', party_timetable_path(@party,timetable) %></div>
+      <div><%= link_to '編集', edit_party_timetable_path(@party,timetable) %></div>
+      <div><%= link_to '削除',party_timetable_path(@party, timetable), method: :delete, data: { confirm: 'Are you sure?' } %></div>
     </div>
   </div>
 <% end %>

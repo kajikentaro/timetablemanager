@@ -1,5 +1,6 @@
 class PartiesController < ApplicationController
   before_action :set_party, only: %i[show edit update destroy ]
+  layout 'timetables'
 
   def start
       @party = Party.find(params[:id])

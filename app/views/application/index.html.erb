@@ -1,2 +1,7 @@
-  <p>時間割でスケジュールを管理するサービス</p>
-<%=link_to '時間割を新規作成する', parties_path%>
+<div class='index-back'>
+<h1>皆の空きコマがひと目でわかる</h1>
+<p>「時間割マネージャー」は部活、サークルでの予定をバッチリ合わせるスケジュール調整サービスです</p>
+<button class='button' id='new-TT'>時間割を新規作成する</button>
+</div>
+<div id='new-url' data-json=<%=parties_path%>>
+<%=javascript_pack_tag 'index/index'%>

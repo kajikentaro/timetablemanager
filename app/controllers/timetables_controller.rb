@@ -1,5 +1,6 @@
 class TimetablesController < ApplicationController
   #before_action :set_timetable, only: %i[ show edit update destroy ]
+  layout 'timetables'
   def result
     @timetables = Timetable.all
   end
@@ -31,6 +32,7 @@ class TimetablesController < ApplicationController
   end
 
   def history
+    @party = Party.where(id: params[:party_id]).first
     @timetables = Timetable.all
   end
 
