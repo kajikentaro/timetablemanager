@@ -1,10 +1,19 @@
 import * as component from 'timetables/component';
+var party;
 var timetables;
 var row;
 var col;
 var candidate =0;
 var onceCandidate;
-window.addEventListener('load',start);
+window.onload = ()=>{
+    party = component.getParty();
+    console.log(party);
+    timetables = component.getTTs();
+    row = party.times.length;
+    col = party.dates.length;
+    calcOnce();
+    calcTwice();
+}
 function calcOnce(){
     var n = 0;
     for(var i=0;i<row*col;i++){
@@ -23,7 +32,7 @@ function calcOnce(){
                 return go_view_gather;
             }());
             new_element.className = 'candidate';
-            new_element.innerHTML = component.getClassTime(i,row);
+            new_element.innerHTML = component.getDateTime(i,party.dates, party.times);
             var anchor = document.getElementById('anchor-once');
             document.getElementById('once').insertBefore(new_element, anchor);
         }
@@ -61,11 +70,4 @@ function calcTwice(){
     if(n == 0){
         document.getElementById('once').display = "none";
     }
-}
-function start(){
-    timetables = component.getTTs();
-    row = timetables[0].row;
-    col = timetables[0].col;
-    calcOnce();
-    calcTwice();
 }

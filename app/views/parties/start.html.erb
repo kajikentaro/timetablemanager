@@ -33,6 +33,6 @@
   </div>
 </div>
 <%= javascript_pack_tag 'parties/start'%>
-<div id='home-url-data' data-json=<%=party_timetables_home_path(@party)%>></div>
+<div id='home-url-data' data-json=<%=tt_index_url(@party)%>></div>
 <div id='setting-url-data' data-json=<%=request.url%>></div>
-<div id='share-home-url-data' data-json=<%="https://line.me/R/msg/text/?#{party_timetables_home_path(@party)}"%>></div>
+<div id='share-home-url-data' data-json=<%="https://line.me/R/msg/text/?#{tt_index_url(@party)}"%>></div>

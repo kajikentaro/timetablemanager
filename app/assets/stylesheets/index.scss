@@ -1,0 +1,22 @@
+// Place all the styles related to the tmps controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.index-back{
+    background-image:url(index-back.jpg);
+    background-size:cover;
+    height:600px;
+    background-color:rgba(255,255,255,0.5);
+    background-blend-mode:lighten;
+    text-align:center;
+    button{
+        opacity:1.0;
+        margin:20px 0 0 0 ;
+        display:inline;
+        text-align:center;
+    }
+    h1{
+        padding-top:250px;
+        margin:0;
+    }
+}

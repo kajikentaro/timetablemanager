@@ -8,6 +8,5 @@ class CreateParties < ActiveRecord::Migration[6.1]
       t.string :groups ,array: true
       t.timestamps
     end
-    add_index :public_uid
   end
 end

@@ -5,12 +5,12 @@
 <p>「暇」の数を表示しています</p>
 
 
-<div id='timetables' data-json='<%=@timetables.to_json%>'></div>
 <% row = @times_str.length%>
-<% col = @dates_str.length - 1%>
+<% col = @dates_str.length%>
 
 <div class="timetable">
     <div class="row">
+        <div class="date"></div>
         <% @dates_str.each do |d| %>
         <div class="date"><%= d%></div>
         <% end %>
@@ -27,7 +27,8 @@
 <div id='row-col-num' data-json=<%={'row' => row, 'col' => col}.to_json%>></div>
 <div id='iso-url' data-json=<%= asset_url("iso.png").to_json%>></div>
 <div id='hima-url' data-json=<%= asset_url("hima.png").to_json%>></div>
-<div id='timetable' data-json='<%=@timetable.to_json%>'></div>
+<div id='timetables' data-json='<%=@timetables.to_json%>'></div>
+<div id='party' data-json='<%=@party.to_json%>'></div>
 <div id='changeable' data-json='<%=@changeable%>'></div>
 <%= javascript_pack_tag 'timetables/distribution'%>
 

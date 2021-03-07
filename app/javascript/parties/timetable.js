@@ -13,9 +13,9 @@ function submit_TT(){
     var times_str = [];
     var TT = document.getElementById('timetable-make');
     var rows = TT.getElementsByClassName("row");
-    for(var i=0;i<r;i++){
+    for(var i=0;i<r-1;i++){
         var cols = rows[i].children;
-        for(var j=0;j<c;j++){
+        for(var j=0;j<c-1;j++){
             if(2 <= j && i == 1){
                 dates_str.push(cols[j].innerHTML);
             }
@@ -25,7 +25,8 @@ function submit_TT(){
         }
     }
 
-    var partyname = document.getElementById('username').innerHTML;
+    var partyname = document.getElementById('username').value;
+    if(partyname == "")partyname = "名無しのレジェンド団体";
     component.set_csrftoken();
     $.ajax({
         url: "./parties",
@@ -36,7 +37,7 @@ function submit_TT(){
             console.log(data);
             if(data){
                 console.log(data);
-                location.href = "parties/" + data + "/start";
+                location.href = "parties/" + data.id + "/start";
             }else{
                 alert("サーバーでエラーが発生しました。しばらくたった後にやり直してください。");
             }

@@ -1,3 +1,4 @@
+import * as component from 'timetables/component';
 var candidate =0;
 var onceCandidate;
 function subclick1(n){

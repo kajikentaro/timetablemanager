@@ -4,7 +4,7 @@ module TimetablesHelper
     end
 
     def go_home_button
-        return button_to "最初に戻る", {controller: 'timetables', action: 'home'}, {method: :get, params:{num1:'fromTM'},class: 'button full'}
+        return button_to "最初に戻る", {controller: 'timetables', action: 'index'}, {method: :get, params:{num1:'fromTM'},class: 'button full'}
     end
 
     def view_history

@@ -1,6 +1,7 @@
 import { href } from '@rails/ujs';
 import * as component from 'timetables/component';
 console.log('I am timetable.js');
+var party;
 var subject_elements = [];
 var hima_url;
 var iso_url;
@@ -14,6 +15,9 @@ window.addEventListener('load', function() {
 });
 
 function start(){
+    party = component.getParty();
+    row = party.times.length;
+    col = party.dates.length;
     setTT();
     if(timetable_obj.timetable)drawInputTT();
     else drawNewTT();
@@ -57,15 +61,12 @@ function setToggleAction(){
     }
 }
 function setTT(){
-    var row_col_num = JSON.parse(document.getElementById('row-col-num').dataset.json);
     iso_url = JSON.parse(document.getElementById('iso-url').dataset.json);
     hima_url = JSON.parse(document.getElementById('hima-url').dataset.json);
     timetable_obj = JSON.parse(document.getElementById('timetable').dataset.json);
     changeable = JSON.parse(document.getElementById('changeable').dataset.json);
     timetable_obj.timetable = JSON.parse(timetable_obj.timetable);
     username = timetable_obj.name;
-    row = row_col_num.row;
-    col = row_col_num.col;
 }
 function setImage(sub_no){
     if(subject_elements[sub_no] == 0)document.getElementById("subject" + sub_no).setAttribute('src',hima_url);
@@ -78,7 +79,7 @@ function setButtonAction(){
     document.getElementById('update').onclick = ()=>{
         console.log('update');
             $.ajax({
-                url: "./",
+                url: document.getElementById('update-url').dataset.json,
                 type: "PATCH",
                 data: JSON.stringify({name:username, timetable: subject_elements, row: row, col: col}),
                 datatype: "html",
@@ -101,7 +102,7 @@ function setButtonAction(){
     document.getElementById('submit').onclick = ()=>{
         console.log('update');
             $.ajax({
-                url: "create",
+                url: document.getElementById('create-url').dataset.json,
                 type: "POST",
                 data: JSON.stringify({name:username, timetable: subject_elements, row: row, col: col}),
                 datatype: "html",

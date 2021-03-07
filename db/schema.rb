@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_05_125111) do
+ActiveRecord::Schema.define(version: 2021_03_07_155412) do
 
   create_table "parties", force: :cascade do |t|
     t.string "name"
+    t.string "public_uid"
     t.string "dates"
     t.string "times"
     t.string "groups"
@@ -23,16 +24,14 @@ ActiveRecord::Schema.define(version: 2021_03_05_125111) do
 
   create_table "timetables", force: :cascade do |t|
     t.string "name"
+    t.string "party"
     t.string "timetable"
-    t.integer "row"
-    t.integer "col"
+    t.string "group"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tmps", force: :cascade do |t|
-    t.string "name"
-    t.integer "age"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

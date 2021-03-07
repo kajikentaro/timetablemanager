@@ -3,6 +3,7 @@
 <p><%= @timetable.name%> さんの提出を編集しています</p>
 
 <%=render partial:'timetable'%>
+<div id='update-url' data-json=<%=tt_update_url(@party,@timetable)%>></div>
 
 <button  class="button half" id='update'>更新</button>
 </div>

@@ -4,7 +4,17 @@ var free_man_table = [];
 var timetables;
 var row;
 var col;
-window.addEventListener('load',start);
+var party;
+window.onload = ()=>{
+    timetables = component.getTTs();
+    party = component.getParty();
+    row = party.times.length;
+    col = party.dates.length;
+    console.log(timetables);
+    gatherPeople();
+    console.log(free_man_table);
+    makeDistribution();
+}
 function　gatherPeople(){
     for(var i=0;i<row*col;i++){
         var free_man = 0;
@@ -47,15 +57,6 @@ function makeDistribution(){
             return go_view_gather;
         }());
     }
-}
-function start(){
-    timetables = component.getTTs();
-    row = timetables[0].row;
-    col = timetables[0].col;
-    console.log(timetables);
-    gatherPeople();
-    console.log(free_man_table);
-    makeDistribution();
 }
 function hsl2rgb ( hsl ) {
 	var h = hsl[0] ;

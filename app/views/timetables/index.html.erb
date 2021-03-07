@@ -1,25 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Timetables</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @timetables.each do |timetable| %>
-      <tr>
-        <td><%= link_to 'Show', timetable %></td>
-        <td><%= link_to 'Edit', edit_timetable_path(timetable) %></td>
-        <td><%= link_to 'Destroy', timetable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Timetable', new_timetable_path %>
+<p class="center">今年度の週会議の日程をきめるので、皆の時間割を教えてください!</p>
+<div class="textBox">
+    <%= form_with url:tt_new_url, method: :get, class: 'name-form' do |form|%>
+        <%= form.text_field :name, {class: 'name-field', placeholder: '名前を入力'}%><%= form.submit "OK" ,class: "button submit-name"%>
+    <% end%>
+    <%= view_history%><%= view_result%>
+    <%= view_distribution%>
+</div>
+<h3>更新履歴</h3>
+<p>4月4日</p>
+<p>　　暫定履歴で既にひとコマのみに該当した時間は以降表示しないように変更</p>
+<p>　　デザインの改修</p>
+<p>　　<del>無料サーバーを使ってるのでスマホからの閲覧は広告が表示されると思います</del></p>
+<p>4月7日</p>
+<p>　　サーバーの変更</p>
+<p>5月1日</p>
+<p>　　バグ修理</p>
+<p>5月4日</p>
+<p>　　バグ修理</p>
+<p>　　分布機能追加</p>
+</div>

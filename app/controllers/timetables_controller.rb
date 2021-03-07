@@ -1,72 +1,42 @@
 class TimetablesController < ApplicationController
-  #before_action :set_timetable, only: %i[ show edit update destroy ]
+  before_action :set_party
   layout 'timetables'
   def result
-    @timetables = Timetable.all
+    @timetables = Timetable.where(party:params[:party_id])
   end
 
   def view_gather2
-    @party = Party.where(id: params[:party_id]).first
     @timetables = Timetable.all
     @class_num = params[:id]
     @class_num2 = params[:id2]
   end
 
   def view_gather
-    @party = Party.where(id: params[:party_id]).first
     @timetables = Timetable.all
     @class_num = params[:id]
   end
 
   def distribution
     @timetables = Timetable.all
-    @dates_str = ['','月','火','水','木','金','土','日']
-    #@changeable = false
-    @times_str = [
-    "1 <br> 9:00  <br> 10:40".html_safe,
-    "2 <br> 10:50 <br> 12:30".html_safe,
-    "3 <br> 13:20 <br> 15:00".html_safe,
-    "4 <br> 15:10 <br> 16:50".html_safe,
-    "5 <br> 17:00 <br> 18:40".html_safe,
-    "6 <br> 18:50 <br> 20:30".html_safe,
-    "7 <br> 20:40 <br> 22:20".html_safe
-    ]
+    set_TT
   end
 
   def history
-    @party = Party.where(id: params[:party_id]).first
     @timetables = Timetable.all
   end
 
-  def home
-  end
   # GET /timetables or /timetables.json
   def index
     #@timetables = Timetable.all
-    render template: 'timetables/home'
   end
 
   # GET /timetables/1 or /timetables/1.json
   def show
-    @timetable = Timetable.find(params[:id])
-    @dates_str = ['','月','火','水','木','金','土','日']
+    set_TT
+    @timetable = Timetable.find_by(id:params[:id])
     @changeable = false
-    @times_str = [
-    "1 <br> 9:00  <br> 10:40".html_safe,
-    "2 <br> 10:50 <br> 12:30".html_safe,
-    "3 <br> 13:20 <br> 15:00".html_safe,
-    "4 <br> 15:10 <br> 16:50".html_safe,
-    "5 <br> 17:00 <br> 18:40".html_safe,
-    "6 <br> 18:50 <br> 20:30".html_safe,
-    "7 <br> 20:40 <br> 22:20".html_safe
-    ]
-
   end
 
-  def newpost
-    format.html {redirect_to 'new' }
-    #new(params['name'])
-  end
   # GET /timetables/new
   def new
     @timetable = Timetable.new
@@ -76,37 +46,20 @@ class TimetablesController < ApplicationController
       @timetable.name = params[:name]
     end
     @changeable = true
-    @dates_str = ['','月','火','水','木','金','土','日']
-    @times_str = [
-    "1 <br> 9:00  <br> 10:40".html_safe,
-    "2 <br> 10:50 <br> 12:30".html_safe,
-    "3 <br> 13:20 <br> 15:00".html_safe,
-    "4 <br> 15:10 <br> 16:50".html_safe,
-    "5 <br> 17:00 <br> 18:40".html_safe,
-    "6 <br> 18:50 <br> 20:30".html_safe,
-    "7 <br> 20:40 <br> 22:20".html_safe
-    ]
+    set_TT
   end
 
   # GET /timetables/1/edit
   def edit
     @timetable = Timetable.find(params[:id])
-    @dates_str = ['','月','火','水','木','金','土','日']
     @changeable = true
-    @times_str = [
-    "1 <br> 9:00  <br> 10:40".html_safe,
-    "2 <br> 10:50 <br> 12:30".html_safe,
-    "3 <br> 13:20 <br> 15:00".html_safe,
-    "4 <br> 15:10 <br> 16:50".html_safe,
-    "5 <br> 17:00 <br> 18:40".html_safe,
-    "6 <br> 18:50 <br> 20:30".html_safe,
-    "7 <br> 20:40 <br> 22:20".html_safe
-    ]
+    set_TT
   end
 
   # POST /timetables or /timetables.json
   def create
     @timetable = Timetable.new(convHash)
+    @timetable.party = params[:party_id]
     if @timetable.save
       render json: true
     else
@@ -126,6 +79,7 @@ class TimetablesController < ApplicationController
 
   # DELETE /timetables/1 or /timetables/1.json
   def destroy
+    @timetable = Timetable.find_by(id: params[:id])
     @timetable.destroy
     respond_to do |format|
       format.html { redirect_to action: 'history', notice: "Timetable was successfully destroyed." }
@@ -134,16 +88,21 @@ class TimetablesController < ApplicationController
   end
 
   private
-
-    # Only allow a list of trusted parameters through.
-    def timetable_params
-      params.fetch(:timetable, {})
+    def set_TT
+      @dates_str = JSON.parse(@party.dates)
+      @times_str = JSON.parse(@party.times)
     end
-    
+    def set_party
+      @party = Party.find_by(public_uid: params[:party_id])
+    end
     def convHash
-      input = request.body.read
-      tmp = JSON.parse(input, symbolize_names:true)
-      print("!!!!!!!!!!!!",tmp)                                                                                         
-      return tmp
+      input_raw = request.body.read
+      input_json= JSON.parse(input_raw, symbolize_names:true)
+      puts("debug:",input_json)
+      params = ActionController::Parameters.new(input_json)
+      puts("debug:", params)
+      params_ok =  params.permit(:name,timetable: [])
+      puts("debug:", params_ok)
+      return params_ok
     end
 end

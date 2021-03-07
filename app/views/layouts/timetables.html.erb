@@ -4,6 +4,7 @@
   <head>
     <title>TimetableManager</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta id='root-url' data-json='<%=root_url%>'>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,9 +12,12 @@
     <%= javascript_pack_tag 'application'  %>
   </head>
   <header>
-      <h1>Timetable Manager3</h1>
+      <h1 id='header-logo'>Timetable Manager3</h1>
       <p>in timetables html</p>
   </header>
+  <script>
+  document.getElementById('header-logo').onclick = ()=>{location.href = document.getElementById('root-url').dataset.json;}
+  </script>
 
   <body>
     <div class="contents">

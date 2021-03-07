@@ -12,9 +12,10 @@
 </div>--> 
 <% @timetables.each do |timetable| %>
   <div class="row">
-      <div><%= link_to timetable.name, party_timetable_path(@party,timetable) %></div>
+      <div><%= link_to timetable.name, tt_show_url(@party,timetable) %></div>
       <div class='commands absent' id="absent" > - </div>
   </div>
 <% end %>
 </div>
+<div id='party' data-json='<%=@party.to_json%>'>></div>
 <%= javascript_pack_tag 'timetables/view_gather'%>

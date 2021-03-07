@@ -1,11 +1,11 @@
 import * as component from 'timetables/component';
 var timetables;
 var row;
-var col;
 var candidate =0;
 var onceCandidate;
 var class_num;
 var class_num2;
+var party;
 window.addEventListener('load',start);
 function start(){
     class_num = document.getElementById('class_num').dataset.json;
@@ -13,11 +13,10 @@ function start(){
     class_num = parseInt(class_num);
     class_num2 = parseInt(class_num2);
     timetables = component.getTTs();
-    row = timetables[0].row;
-    col = timetables[0].col;
-    document.getElementById("message").innerHTML = component.getClassTime(class_num,row) + "と" + component.getClassTime(class_num2,row) + "の参加状況";
-    document.getElementById("class1").innerHTML = component.getClassTime(class_num,row)
-    document.getElementById("class2").innerHTML = component.getClassTime(class_num2,row)
+    party = component.getParty();
+    document.getElementById("message").innerHTML = component.getDateTime(class_num, party.dates,party.times) + "と" + component.getDateTime(class_num2, party.dates,party.times) + "の参加状況";
+    document.getElementById("class1").innerHTML = component.getDateTime(class_num, party.dates,party.times);
+    document.getElementById("class2").innerHTML = component.getDateTime(class_num2, party.dates,party.times);
     console.log(class_num, class_num2);
     for(var i=0;i<timetables.length;i++){
         if(timetables[i].timetable[class_num2] == 0){
