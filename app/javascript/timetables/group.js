@@ -61,9 +61,10 @@ function gather_data(except = -1) {
 }
 function submit_party() {
     component.set_csrftoken();
+    var update_url = document.getElementById('update-url').dataset.json;
     $.ajax({
-        url: "update",
-        type: "POST",
+        url: update_url,
+        type: "patch",
         data: JSON.stringify({ groups: groups_str }),
         datatype: "html",
         success: function (data) {

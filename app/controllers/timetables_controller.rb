@@ -1,6 +1,14 @@
 class TimetablesController < ApplicationController
   before_action :set_party
   layout 'timetables'
+
+  def index
+  end
+
+  def setting
+    
+  end
+
   def result
     set_TTs
   end
@@ -24,9 +32,6 @@ class TimetablesController < ApplicationController
     set_TTs
   end
 
-  # GET /timetables or /timetables.json
-  def index
-  end
 
   # GET /timetables/1 or /timetables/1.json
   def show

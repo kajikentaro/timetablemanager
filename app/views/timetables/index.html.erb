@@ -1,10 +1,13 @@
+<div class='center'>
+<h1><%=@party.name%></h1>
 <p class="center">今年度の週会議の日程をきめるので、皆の時間割を教えてください!</p>
+</div>
 <div class="textBox">
     <%= form_with url:tt_new_url, method: :get, class: 'name-form' do |form|%>
         <%= form.text_field :name, {class: 'name-field', placeholder: '名前を入力'}%><%= form.submit "OK" ,class: "button submit-name"%>
     <% end%>
     <%= view_history%><%= view_result%>
-    <%= view_distribution%>
+    <%=go_setting%><%= view_distribution%>
 </div>
 <h3>更新履歴</h3>
 <p>4月4日</p>

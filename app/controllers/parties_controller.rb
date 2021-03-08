@@ -21,7 +21,6 @@ class PartiesController < ApplicationController
   # POST /parties or /parties.json
   def create
     @party = Party.new(convHash)
-
     if @party.save
       render json: {"id" =>@party.public_uid}
     else
@@ -29,6 +28,14 @@ class PartiesController < ApplicationController
     end
   end
 
+  def update
+    @party = Party.find_by(public_uid: params[:party_id])
+    if @party.update(convHash)
+      render json:true
+    else
+      render json:false
+    end
+  end
 
   private
     def convHash

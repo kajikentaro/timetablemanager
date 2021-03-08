@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   resources :tmps
   get 'parties', to: 'parties#index', as:'p_index'
   post 'parties', to: 'parties#create', as:'p_create'
+  patch 'parties/:party_id', to:'parties#update', as:'p_update'
   get 'parties/:party_id/start', to:'parties#start', as:'p_start'
 
   get  'tt/:party_id', to: 'timetables#index' , as:'tt_index'
+  get  'tt/:party_id/setting', to: 'timetables#setting' , as:'tt_setting'
   get  'tt/:party_id/new', to: 'timetables#new', as:'tt_new'
   get  'tt/:party_id/result', to: 'timetables#result', as:'tt_result'
   get  'tt/:party_id/history', to: 'timetables#history', as:'tt_history'
