@@ -61,7 +61,7 @@ function calcTwice(){
                     return go_view_gather;
                 }());
                 new_element.className = 'candidate';
-                new_element.innerHTML = component.getClassTime(i,row) + '&' + component.getClassTime(j,row);
+                new_element.innerHTML = component.getDateTime(i,party.dates, party.times) + '&' + component.getDateTime(j,party.dates, party.times);
                 var anchor = document.getElementById('anchor-twice');
                 document.getElementById('twice').insertBefore(new_element, anchor);
             }

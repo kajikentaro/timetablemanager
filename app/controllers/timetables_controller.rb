@@ -2,32 +2,30 @@ class TimetablesController < ApplicationController
   before_action :set_party
   layout 'timetables'
   def result
-    @timetables = Timetable.where(party:params[:party_id])
+    set_TTs
+  end
+
+  def view_gather
+    set_TTs
+    @class_num = params[:id]
   end
 
   def view_gather2
-    @timetables = Timetable.all
+    set_TTs
     @class_num = params[:id]
     @class_num2 = params[:id2]
   end
 
-  def view_gather
-    @timetables = Timetable.all
-    @class_num = params[:id]
-  end
-
   def distribution
-    @timetables = Timetable.all
-    set_TT
+    set_TTs
   end
 
   def history
-    @timetables = Timetable.all
+    set_TTs
   end
 
   # GET /timetables or /timetables.json
   def index
-    #@timetables = Timetable.all
   end
 
   # GET /timetables/1 or /timetables/1.json
@@ -35,6 +33,13 @@ class TimetablesController < ApplicationController
     set_TT
     @timetable = Timetable.find_by(id:params[:id])
     @changeable = false
+  end
+
+
+  # GET /timetables/1/edit
+  def edit
+    set_TT
+    @changeable = true
   end
 
   # GET /timetables/new
@@ -46,14 +51,6 @@ class TimetablesController < ApplicationController
       @timetable.name = params[:name]
     end
     @changeable = true
-    set_TT
-  end
-
-  # GET /timetables/1/edit
-  def edit
-    @timetable = Timetable.find(params[:id])
-    @changeable = true
-    set_TT
   end
 
   # POST /timetables or /timetables.json
@@ -69,7 +66,7 @@ class TimetablesController < ApplicationController
 
   # PATCH/PUT /timetables/1 or /timetables/1.json
   def update
-    @timetable = Timetable.find(params[:id])
+    set_TT
     if @timetable.update(convHash)
       render json: true
     else
@@ -79,7 +76,7 @@ class TimetablesController < ApplicationController
 
   # DELETE /timetables/1 or /timetables/1.json
   def destroy
-    @timetable = Timetable.find_by(id: params[:id])
+    set_TT
     @timetable.destroy
     respond_to do |format|
       format.html { redirect_to action: 'history', notice: "Timetable was successfully destroyed." }
@@ -88,12 +85,16 @@ class TimetablesController < ApplicationController
   end
 
   private
+    def set_TTs
+      @timetables = Timetable.where(party: params[:party_id])
+    end
     def set_TT
-      @dates_str = JSON.parse(@party.dates)
-      @times_str = JSON.parse(@party.times)
+      @timetable = Timetable.find_by(id: params[:id])
     end
     def set_party
       @party = Party.find_by(public_uid: params[:party_id])
+      @dates_str = JSON.parse(@party.dates)
+      @times_str = JSON.parse(@party.times)
     end
     def convHash
       input_raw = request.body.read
