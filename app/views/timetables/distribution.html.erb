@@ -24,6 +24,7 @@
     </div>
     <% end %>
 </div>
+<%=render partial:'group'%>
 <div id='row-col-num' data-json=<%={'row' => row, 'col' => col}.to_json%>></div>
 <div id='iso-url' data-json=<%= asset_url("iso.png").to_json%>></div>
 <div id='hima-url' data-json=<%= asset_url("hima.png").to_json%>></div>

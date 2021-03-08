@@ -6,6 +6,18 @@ export function getParty(){
     party.times = JSON.parse(party.times);
     return party;
 }
+export function getTTs_without(disable_list){
+    var outputs = [];
+    var timetables = document.getElementById('timetables').dataset.json;
+    timetables = JSON.parse(timetables);
+    timetables.forEach(e => {
+        if(disable_list.indexOf(timetables.group) == -1){
+            e.timetable = JSON.parse(e.timetable);
+            outputs.push(e);
+        }
+    });
+    return outputs;
+}
 export function getTTs(){
     var timetables = document.getElementById('timetables').dataset.json;
     timetables = JSON.parse(timetables);

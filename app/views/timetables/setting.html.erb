@@ -1,1 +1,18 @@
 <%=render partial:'group'%>
+<div class='group-make' id='group-make'>
+<div class='left'>
+  <h1>グループを作成する</h1>
+  <p>団体の中のグループを作成して、あとでフィルタリングすることができます</p>
+</div>
+<%if !@party.groups.nil?%>
+  <%JSON.parse(@party.groups).each do |g|%>
+    <div class="row">
+      <input class="groups-input" value=<%=g%>><button class='delete'>削除</button>
+    </div>
+  <%end%>
+<%end%>
+<div id='anchor'></div>
+<div class='row'><button class='add' id='add'>追加</button><button  class="apply" id='apply'>適用</button></div>
+</div>
+<div id='update-url' data-json=<%=p_update_url%>>
+<%=javascript_pack_tag 'timetables/setting'%>

@@ -123,3 +123,45 @@ form{
         background-color: #6b8;
     }
 }
+.group-make, .group-filter-parent{
+    text-align: center;
+    width:600px;
+    margin:0 auto;
+    .groups-input{
+        margin:10px;
+        height:30px;
+        font-size:20px;
+        box-sizing: border-box;
+    }
+    .row{
+        font-size:0px;
+        display: block;
+    }
+    .delete{
+        background-color:rgb(225,174,201);
+        height:30px;
+        box-sizing: border-box;
+        &:hover{
+            opacity:0.6;
+        }
+    }
+    .add, .apply, .open{
+        height:40px;
+        margin:15px;
+        font-size:25px;
+        border-radius: 3px;
+        transition: all 0.3s ease 0s;
+        text-align:center;
+        line-height:25px;
+        width:calc(25% - 30px);
+
+        background-color:rgb(146,217,232);
+        box-sizing: border-box;
+        &:hover{
+            opacity: 0.7;
+        }
+    }
+    .open{
+        width:60%;
+    }
+}

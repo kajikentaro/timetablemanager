@@ -1,21 +1,39 @@
 import * as component from 'timetables/component';
+import * as group from 'timetables/group';
 console.log('I am distribution.js');
-var free_man_table = [];
 var timetables;
 var row;
 var col;
 var party;
 window.onload = ()=>{
-    timetables = component.getTTs();
+    //initialize
     party = component.getParty();
     row = party.times.length;
     col = party.dates.length;
-    console.log(timetables);
-    gatherPeople();
-    console.log(free_man_table);
-    makeDistribution();
+
+    //draw distribution
+    timetables = component.getTTs();
+    var free_man_table = getDistribution();
+    setDistribution(free_man_table);
+
+    //filter setup
+    group.setup_filter(TT_filter);
 }
-function　gatherPeople(){
+//フィルターのステータスが変わったら呼ばれる
+function TT_filter(disable_list){
+    all_remove();
+    timetables = component.getTTs_without(disable_list)
+    var free_man_table = getDistribution();
+    setDistribution(free_man_table);
+}
+function all_remove(){
+    var targets = document.getElementsByClassName('candidate');
+    while(targets.length){
+        targets[0].remove();
+    }
+}
+function getDistribution(){
+    var free_man_table = [];
     for(var i=0;i<row*col;i++){
         var free_man = 0;
         timetables.forEach(t => {
@@ -23,13 +41,14 @@ function　gatherPeople(){
         });
         free_man_table.push(free_man);
     }
+    return free_man_table;
 }
 function getColorCode3(number,max){
     var h = number;
     var i = max - number;
     var result = 0.0 * h + 360.0* i;
     result /= max;
-    var result2 = hsl2rgb([result,0.75,0.52]);
+    var result2 = hsl2rgb([result,0.67,0.70]);
     return `rgb(${result2[0]},${result2[1]},${result2[2]})`;
 }
 function getColorCode2(number,max){
@@ -44,7 +63,7 @@ function getColorCode2(number,max){
     }
     return `rgb(${result[0]},${result[1]},${result[2]})`;
 }
-function makeDistribution(){
+function setDistribution(free_man_table){
     for(var i=0;i<row*col;i++){
         var target = document.getElementById('subject'+i);
         target.innerHTML = free_man_table[i];
