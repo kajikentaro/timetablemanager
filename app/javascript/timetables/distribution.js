@@ -20,9 +20,9 @@ window.onload = ()=>{
     group.setup_filter(TT_filter);
 }
 //フィルターのステータスが変わったら呼ばれる
-function TT_filter(disable_list){
+function TT_filter(filter_list){
     all_remove();
-    timetables = component.getTTs_without(disable_list)
+    timetables = component.getTTs_with(filter_list)
     var free_man_table = getDistribution();
     setDistribution(free_man_table);
 }
@@ -44,6 +44,7 @@ function getDistribution(){
     return free_man_table;
 }
 function getColorCode3(number,max){
+    if(max == 0)return `rgb(255,255,255)`;
     var h = number;
     var i = max - number;
     var result = 0.0 * h + 360.0* i;
@@ -64,6 +65,7 @@ function getColorCode2(number,max){
     return `rgb(${result[0]},${result[1]},${result[2]})`;
 }
 function setDistribution(free_man_table){
+    console.log(free_man_table);
     for(var i=0;i<row*col;i++){
         var target = document.getElementById('subject'+i);
         target.innerHTML = free_man_table[i];

@@ -107,7 +107,7 @@ class TimetablesController < ApplicationController
       puts("debug:",input_json)
       params = ActionController::Parameters.new(input_json)
       puts("debug:", params)
-      params_ok =  params.permit(:name,timetable: [])
+      params_ok =  params.permit(:name,:group,timetable: [])
       puts("debug:", params_ok)
       return params_ok
     end

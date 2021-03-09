@@ -6,14 +6,22 @@ export function getParty(){
     party.times = JSON.parse(party.times);
     return party;
 }
-export function getTTs_without(disable_list){
+export function getTTs_with(filter_list){
+    console.log(filter_list)
     var outputs = [];
     var timetables = document.getElementById('timetables').dataset.json;
     timetables = JSON.parse(timetables);
     timetables.forEach(e => {
-        if(disable_list.indexOf(timetables.group) == -1){
-            e.timetable = JSON.parse(e.timetable);
-            outputs.push(e);
+        if(filter_list[e.group] == void 0){
+            if(filter_list['グループなし、削除済み'] == true){
+                e.timetable = JSON.parse(e.timetable);
+                outputs.push(e);
+            }
+        }else{
+            if(filter_list[e.group] == true){
+                e.timetable = JSON.parse(e.timetable);
+                outputs.push(e);
+            }
         }
     });
     return outputs;

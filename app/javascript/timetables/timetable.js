@@ -77,11 +77,12 @@ function setButtonAction(){
     component.set_csrftoken();
     if(document.getElementById('update')){
     document.getElementById('update').onclick = ()=>{
+        var group = document.getElementById('group-selector').value;
         console.log('update');
             $.ajax({
                 url: document.getElementById('update-url').dataset.json,
                 type: "PATCH",
-                data: JSON.stringify({name:username, timetable: subject_elements, row: row, col: col}),
+                data: JSON.stringify({name:username, timetable: subject_elements, row: row, col: col, group:group}),
                 datatype: "html",
                 success: function(data){
                     if(data){
@@ -100,11 +101,12 @@ function setButtonAction(){
     console.log(document.getElementById('submit'));
     if(document.getElementById('submit')){
     document.getElementById('submit').onclick = ()=>{
+        var group = document.getElementById('group-selector').value;
         console.log('update');
             $.ajax({
                 url: document.getElementById('create-url').dataset.json,
                 type: "POST",
-                data: JSON.stringify({name:username, timetable: subject_elements, row: row, col: col}),
+                data: JSON.stringify({name:username, timetable: subject_elements, row: row, col: col, group:group}),
                 datatype: "html",
                 success: function(data){
                     if(data){

@@ -1,10 +1,18 @@
 <div class='center'>
-<%= view_history_back%>
-<p><%= @timetable.name%> さんの提出を編集しています</p>
-
-<%=render partial:'timetable'%>
-<div id='update-url' data-json=<%=tt_update_url(@party,@timetable)%>></div>
-
-<button  class="button half" id='update'>更新</button>
-</div>
-
+  <%= view_history_back%>
+  <p><%= @timetable.name%> さんの提出を編集しています</p>
+  <%=render partial:'timetable'%>
+  <div id='update-url' data-json=<%=tt_update_url(@party,@timetable)%>></div>
+  <p>グループを選択してください</p>
+  <select id='group-selector'>
+    <option disabled selected value=<%=@timetable.group%>><%=@timetable.group%></option>
+    <option value='グループなし'>グループなし</option>
+    <%if @party.groups.nil?%>
+    <%else%>
+      <%JSON.parse(@party.groups).each do |p|%>
+        <option value='<%=p%>'><%=p%></option>
+      <%end%>
+    <%end%>
+    </select>
+    <button  class="button half" id='update'>更新</button>
+  </div>

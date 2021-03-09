@@ -13,21 +13,34 @@ export function setup_filter(callback){
     var checkboxes = document.getElementsByClassName('group-filter-parent')[0];
     checkboxes = checkboxes.getElementsByClassName('filter-checkbox')
     for(var i = 0;i<checkboxes.length;i++){
+        if(i==0){
+            checkboxes[0].onclick = (event)=>{
+                check_all_force(checkboxes[0].checked);
+                var filter_list= collect_filter();
+                callback(filter_list);
+            }
+            continue;
+        }
         checkboxes[i].onclick = (event)=>{
-            var disable_list = collect_disable();
-            callback(disable_list);
+            var filter_list= collect_filter();
+            callback(filter_list);
         }
     }
 };
-function collect_disable(){
+function check_all_force(check_status){
     var checkboxes = document.getElementsByClassName('group-filter-parent')[0];
     checkboxes = checkboxes.getElementsByClassName('filter-checkbox')
-    var disable_list = [];
     for(var i = 0;i<checkboxes.length;i++){
-        var c = checkboxes[i];
-        if(c.checked == false){
-            disable_list.push(c.value);
-        }
+        checkboxes[i].checked = check_status;
     }
-    return c.value;
+}
+function collect_filter(){
+    var checkboxes = document.getElementsByClassName('group-filter-parent')[0];
+    checkboxes = checkboxes.getElementsByClassName('filter-checkbox')
+    var filter_list= {};
+    for(var i = 1;i<checkboxes.length;i++){
+        var c = checkboxes[i];
+        filter_list[c.value] = c.checked;
+    }
+    return filter_list;
 }

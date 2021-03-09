@@ -1,7 +1,17 @@
 <div class='center'>
-<%= go_home_button%>
-<h1><%= @timetable.name %></h1>
-<p>暇をクリックしてみよう</p>
-<%= render partial: 'timetable'%>
-
-<button  class="button half" id='submit'>提出</button>
+  <%= go_home_button%>
+  <h1><%= @timetable.name %></h1>
+  <p>暇をクリックしてみよう</p>
+  <%= render partial: 'timetable'%>
+  <p>グループを選択してください</p>
+  <select id='group-selector'>
+    <option value='グループなし'>グループなし</option>
+    <%if @party.groups.nil?%>
+    <%else%>
+      <%JSON.parse(@party.groups).each do |p|%>
+        <option value='<%=p%>'><%=p%></option>
+      <%end%>
+    <%end%>
+  </select>
+  <button  class="button half" id='submit'>提出</button>
+</div>
