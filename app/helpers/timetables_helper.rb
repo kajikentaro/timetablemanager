@@ -23,6 +23,10 @@ module TimetablesHelper
         return button_to "分布を見る", {controller: 'timetables', action: 'distribution'}, {method: :get, params:{num1:'fromTM'},class: 'button full'}
     end
 
+    def go_home
+        return button_to "ホームへ", {controller: 'application', action: 'index'}, {method: :get, params:{num1:'fromTM'},class: 'button full'}
+    end
+
     def go_setting
         return button_to "グループを編集", {controller: 'timetables', action: 'setting'}, {method: :get, params:{num1:'fromTM'},class: 'button full'}
     end
