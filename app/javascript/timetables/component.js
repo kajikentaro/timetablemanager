@@ -2,8 +2,8 @@ console.log('I am component.js');
 export function getParty(){
     var party = document.getElementById('party').dataset.json;
     party = JSON.parse(party);
-    party.dates = JSON.parse(party.dates);
-    party.times = JSON.parse(party.times);
+    party.dates = party.dates;
+    party.times = party.times;
     return party;
 }
 export function getTTs_with(filter_list){

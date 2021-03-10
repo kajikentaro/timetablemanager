@@ -8,7 +8,7 @@
     <option value='グループなし'>グループなし</option>
     <%if @party.groups.nil?%>
     <%else%>
-      <%JSON.parse(@party.groups).each do |p|%>
+      <%@party.groups.each do |p|%>
         <option value='<%=p%>'><%=p%></option>
       <%end%>
     <%end%>

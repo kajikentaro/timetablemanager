@@ -6,7 +6,7 @@
     <%else%>
         <label><input type='checkbox' class='filter-checkbox' checked='checked' value='すべてのグループ'>すべてのグループ</label>
         <label><input type='checkbox' class='filter-checkbox' checked='checked' value='グループなし、削除済み'>グループなし、削除済み</label>
-      <%JSON.parse(@party.groups).each do |p|%>
+      <%@party.groups.each do |p|%>
         <label><input type='checkbox' class='filter-checkbox' checked='checked' value='<%=p%>'><%=p%></label>
       <%end%>
     <%end%>

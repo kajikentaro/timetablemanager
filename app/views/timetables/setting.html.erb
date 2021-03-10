@@ -7,7 +7,7 @@
   <p>団体の中のグループを作成して、あとでフィルタリングすることができます</p>
 </div>
 <%if !@party.groups.nil?%>
-  <%JSON.parse(@party.groups).each do |g|%>
+  <%@party.groups.each do |g|%>
     <div class="row">
       <input class="groups-input" value=<%=g%>><button class='delete'>削除</button>
     </div>

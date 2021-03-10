@@ -98,8 +98,8 @@ class TimetablesController < ApplicationController
     end
     def set_party
       @party = Party.find_by(public_uid: params[:party_id])
-      @dates_str = JSON.parse(@party.dates)
-      @times_str = JSON.parse(@party.times)
+      @dates_str = @party.dates
+      @times_str = @party.times
     end
     def convHash
       input_raw = request.body.read
