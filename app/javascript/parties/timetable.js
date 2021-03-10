@@ -17,10 +17,10 @@ function submit_TT(){
         var cols = rows[i].children;
         for(var j=0;j<c-1;j++){
             if(2 <= j && i == 1){
-                dates_str.push(cols[j].innerHTML);
+                dates_str.push(cols[j].value);
             }
             if(2 <= i && j == 1){
-                times_str.push(cols[j].innerHTML);
+                times_str.push(cols[j].value);
             }
         }
     }
