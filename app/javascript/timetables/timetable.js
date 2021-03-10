@@ -24,6 +24,9 @@ function start(){
     if(changeable)setToggleAction();
     else setViewGatherAction();
     setButtonAction();
+
+    component.resize(document.getElementsByClassName('subject'));
+    component.resize(document.getElementsByClassName('time'));
 }
 function setViewGatherAction(){
     for(var i=0;i<row*col;i++){

@@ -1,4 +1,17 @@
 console.log('I am component.js');
+export var resize=function(elements){
+    var resize_func = ()=>{
+        if(document.body.clientWidth<900){
+            for(var i=0;i<elements.length;i++){
+                var width=elements[i].getBoundingClientRect().width
+                elements[i].style.height = width + "px";
+
+            }
+        }
+    };
+    window.addEventListener('resize', resize_func, false);
+    resize_func();
+}
 export function getParty(){
     var party = document.getElementById('party').dataset.json;
     party = JSON.parse(party);

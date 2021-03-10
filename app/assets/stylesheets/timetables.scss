@@ -1,6 +1,21 @@
 // Place all the styles related to the timetables controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+$media-sp: 950px;
+@mixin sp {
+  @media only screen and (max-width: $media-sp) {
+    @content;
+  }
+}
+.contents{
+    max-width: 1000px;
+    margin:0 auto;
+    background-color: #f6f6f6;
+    padding:20px;
+    @include sp{
+        padding: 20px 0;
+    }
+}
 .button{
     height:60px;
     background-color:#447758;
@@ -34,6 +49,11 @@ form{
     width:600px;
     margin:0 auto;
     padding: 30px;
+    @include sp{
+        margin:0;
+        padding:0;
+        width:100%;
+    }
     .name-form{
         > .name-field{
             height:60px;
@@ -61,7 +81,10 @@ form{
         font-size:15px;
         margin:1px;
         height:80px;
-        width:80px;
+        width: 80px;
+        @include sp{
+            width:10%;
+        }
         vertical-align:bottom;
         display:inline-block;
     }
