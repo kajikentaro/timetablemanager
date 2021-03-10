@@ -18,6 +18,10 @@ window.onload = ()=>{
 
     //filter setup
     group.setup_filter(TT_filter);
+
+    //responsive design
+    component.resize(document.getElementsByClassName('subject'));
+    component.resize(document.getElementsByClassName('time'));
 }
 //フィルターのステータスが変わったら呼ばれる
 function TT_filter(filter_list){
