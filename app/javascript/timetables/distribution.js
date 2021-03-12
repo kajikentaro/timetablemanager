@@ -13,15 +13,19 @@ window.onload = ()=>{
 
     //draw distribution
     timetables = component.getTTs();
-    var free_man_table = getDistribution();
-    setDistribution(free_man_table);
+    if(timetables != void 0){
+        var free_man_table = getDistribution();
+        setDistribution(free_man_table);
+    }
 
     //filter setup
     group.setup_filter(TT_filter);
 
     //responsive design
-    component.resize(document.getElementsByClassName('subject'));
-    component.resize(document.getElementsByClassName('time'));
+    console.log(row);
+    component.resize(document.getElementsByClassName('subject'), row+1);
+    component.resize(document.getElementsByClassName('time'), row+1);
+    component.resize(document.getElementsByClassName('date'), row+1);
 }
 //フィルターのステータスが変わったら呼ばれる
 function TT_filter(filter_list){

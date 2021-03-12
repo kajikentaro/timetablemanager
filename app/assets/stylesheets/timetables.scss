@@ -32,6 +32,9 @@ $media-sp: 950px;
     &:hover{
         opacity: 0.7;
     }
+    @include sp{
+        font-size:18px;
+    }
 }
 form{
     display:inline;
@@ -149,6 +152,9 @@ form{
 .group-make, .group-filter-parent{
     text-align: center;
     width:600px;
+    @include sp{
+        width: 80%;
+    }
     margin:0 auto;
     .groups-input{
         margin:10px;
@@ -182,6 +188,9 @@ form{
         box-sizing: border-box;
         &:hover{
             opacity: 0.7;
+        }
+        @include sp{
+            font-size:13px;
         }
     }
     .open{

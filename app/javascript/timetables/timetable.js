@@ -25,8 +25,9 @@ function start(){
     else setViewGatherAction();
     setButtonAction();
 
-    component.resize(document.getElementsByClassName('subject'));
-    component.resize(document.getElementsByClassName('time'));
+    component.resize(document.getElementsByClassName('subject'), row+1);
+    component.resize(document.getElementsByClassName('time'), row+1);
+    component.resize(document.getElementsByClassName('date'), row+1);
 }
 function setViewGatherAction(){
     for(var i=0;i<row*col;i++){

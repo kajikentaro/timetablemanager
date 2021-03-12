@@ -1,11 +1,12 @@
 console.log('I am component.js');
-export var resize=function(elements){
+export var resize=function(elements, split_n){
     var resize_func = ()=>{
-        if(document.body.clientWidth<900){
+        var screen_width = document.body.clientWidth;
+        var width = screen_width / split_n;
+        if(screen_width<900){
             for(var i=0;i<elements.length;i++){
-                var width=elements[i].getBoundingClientRect().width
+                elements[i].style.width = width + "px"
                 elements[i].style.height = width + "px";
-
             }
         }
     };
