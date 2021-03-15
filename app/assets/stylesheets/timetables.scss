@@ -1,7 +1,7 @@
 // Place all the styles related to the timetables controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-$media-sp: 950px;
+$media-sp: 900px;
 @mixin sp {
   @media only screen and (max-width: $media-sp) {
     @content;
@@ -81,15 +81,15 @@ form{
         display: block;
     }
     .subject, .time, .date{
+        vertical-align:bottom;
+        display:inline-block;
         font-size:15px;
         margin:1px;
         height:80px;
         width: 80px;
         @include sp{
-            width:10%;
+            font-size:12px;
         }
-        vertical-align:bottom;
-        display:inline-block;
     }
     .subject:hover{
         opacity:0.6;
@@ -202,4 +202,7 @@ select{
     font-size:22px;
     margin:0 auto;
     width:40%;
+    @include sp{
+        width: 75%;
+    }
 }

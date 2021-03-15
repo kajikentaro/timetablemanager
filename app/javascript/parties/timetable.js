@@ -2,11 +2,35 @@ import * as component from 'timetables/component';
 console.log("I am parties/timetable.js");
 window.onload = ()=>{
     start();
+    responsive_design();
+    window.addEventListener('resize', responsive_design, false);
     document.getElementById("submit").onclick = ()=>{
         if(window.confirm("後から変更出来ませんが、よろしいですか")){
             submit_TT();
         }
     }
+}
+function responsive_design(){
+    resize(document.getElementsByClassName('subject'));
+    resize(document.getElementsByClassName('time'));
+    resize(document.getElementsByClassName('date'));
+}
+var resize=function(elements){
+    var split_n = Math.max(c, 6);
+    var resize_func = ()=>{
+        var screen_width = document.body.clientWidth;
+        var parent_width = elements[0].parentNode.getBoundingClientRect().width
+        var width = Math.min(parent_width / split_n, 80);
+        var height = Math.min(parent_width / split_n, 50);
+        if(screen_width<900){
+            for(var i=0;i<elements.length;i++){
+                elements[i].style.width = (width - 2) + "px"
+                elements[i].style.height = (width - 2) + "px";
+            }
+        }
+    };
+    resize_func();
+    return(resize_func);
 }
 function submit_TT(){
     var dates_str = [];
@@ -137,4 +161,5 @@ function start(){
             }
         }
     }
+    responsive_design();
 }

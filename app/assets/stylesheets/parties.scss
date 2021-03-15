@@ -1,6 +1,17 @@
 // Place all the styles related to the parties controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+$media-sp: 900px;
+@mixin sp {
+  @media only screen and (max-width: $media-sp) {
+    @content;
+  }
+}
+@include sp{
+    h1{
+        font-size:18px;
+    }
+}
 .url-holder{
     input{
         height:60px;
@@ -16,10 +27,6 @@
 }
 .timetable-make{
     text-align: center;
-    background-color: #ddd;
-    width:80%;
-    padding-bottom: 30px;
-    margin:0 auto;
     .name-field{
         display:inline-block;
         height:40px;
@@ -30,6 +37,9 @@
         margin:30px;
         margin-bottom:40px;
         border: 1px solid #999;
+        @include sp{
+            width: 80%;
+        }
     }
     .row{
         font-size:0px;
@@ -39,6 +49,9 @@
         overflow:hidden;
     }
     .subject, .time, .date{
+        @include sp{
+            font-size:12px;
+        }
         font-size:15px;
         margin:1px;
         height:80px;
@@ -48,7 +61,7 @@
         box-sizing:border-box;
     }
     .active{
-        background-color:#f6f6f6;
+        background-color:#ddd;
     }
     .date{
         height:40px;

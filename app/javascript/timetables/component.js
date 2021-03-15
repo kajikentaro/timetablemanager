@@ -2,16 +2,17 @@ console.log('I am component.js');
 export var resize=function(elements, split_n){
     var resize_func = ()=>{
         var screen_width = document.body.clientWidth;
-        var width = screen_width / split_n;
+        var parent_width = elements[0].parentNode.getBoundingClientRect().width
+        var width = Math.min(parent_width / split_n, 80);
         if(screen_width<900){
             for(var i=0;i<elements.length;i++){
-                elements[i].style.width = width + "px"
-                elements[i].style.height = width + "px";
+                elements[i].style.width = (width - 2) + "px"
+                elements[i].style.height = (width - 2) + "px";
             }
         }
     };
-    window.addEventListener('resize', resize_func, false);
     resize_func();
+    return(resize_func);
 }
 export function getParty(){
     var party = document.getElementById('party').dataset.json;
