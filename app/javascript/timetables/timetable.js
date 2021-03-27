@@ -116,7 +116,7 @@ function setButtonAction(){
                 datatype: "html",
                 success: function(data){
                     if(data){
-                        location.href = "result";
+                        location.href = "distribution";
                     }else{
                         alert("サーバーでエラーが発生しました。しばらくたった後にやり直してください。");
                     }

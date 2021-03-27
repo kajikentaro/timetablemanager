@@ -50,3 +50,11 @@ $media-sp: 900px;
     object-fit:cover;
     }
 }
+.contents-index{
+    max-width:900px;
+    margin:0 auto;
+    .content-image{
+        max-width:500px;
+        text-align:center;
+    }
+}
