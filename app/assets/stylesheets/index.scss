@@ -1,7 +1,12 @@
 // Place all the styles related to the tmps controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
+$media-sp: 900px;
+@mixin sp {
+  @media only screen and (max-width: $media-sp) {
+    @content;
+  }
+}
 .index-back{
     background-image:url(index-back.jpg);
     background-size:cover;
@@ -18,5 +23,30 @@
     h1{
         padding-top:250px;
         margin:0;
+    }
+}
+
+.inner-block {
+    display:flex;
+    margin: 0 auto;
+    justify-content: center;
+    .fade-img-box, .fade-img-box1, .fade-img-box2 {
+    width:450px;
+    height:350px;
+    margin-top: 10px;
+    position:relative;
+    }
+    @include sp{
+        .fade-img-box, .fade-img-box2{
+            display:none;
+        }
+    }
+    .screen-shot{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
     }
 }
