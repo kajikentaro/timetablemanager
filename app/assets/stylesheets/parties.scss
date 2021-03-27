@@ -14,8 +14,8 @@ $media-sp: 900px;
 }
 .url-holder{
     input{
-        height:60px;
-        font-size:40px;
+        height:40px;
+        font-size:30px;
         width:calc(90%);
         vertical-align:bottom;
         box-sizing: border-box;
@@ -23,6 +23,21 @@ $media-sp: 900px;
         border: solid #fff 0px;
         background-color:#eee;
         line-height:25px;
+    }
+    @include sp{
+        button{
+            margin:10px 5px 10px 5px;
+        }
+        input{
+            height:30px;
+            font-size:20px;
+        }
+        h1{
+            padding:10px 0 0 10px;
+        }
+        p{
+            padding:0 0 0 12px;
+        }
     }
 }
 .timetable-make{
