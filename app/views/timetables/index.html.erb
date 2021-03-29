@@ -24,4 +24,30 @@
 <p>　　バグ修理</p>
 <p>　　分布機能追加</p>
 -->
-</div>
+<%if @party.name.include?("りこボラ") then%>
+<%=image_tag 'bora.png', class:"illustration"%>
+<style>
+header{
+background-color:#4a76f3;
+}
+.textBox{
+background-color: #5fdaf6;
+background-position: right bottom;
+bground-image:url(#{asset_path "bora.png"});"%>
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+.button{
+background-color:#4a76f3;
+}
+.contents{
+    position:relative;
+}
+.illustration{
+    position:absolute;
+    background-image:url(<%=asset_path "bora.png"%>);
+    bottom:0;
+    right:0;
+}
+</style>
+<%end%>
