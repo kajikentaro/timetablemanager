@@ -206,3 +206,8 @@ select{
         width: 75%;
     }
 }
+@include sp{
+	.illustration{
+		display:none;
+	}
+}
