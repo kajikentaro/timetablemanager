@@ -119,24 +119,33 @@ form{
     }
 }
 .member{
-    margin:0 auto;
-    font-size:19px;
-    width:600px;
-    .row{
-        margin:23px 0px;
-        display:block;
+    .table{
+        width:auto;
     }
-    .commands{
-        float:right;
+    td{
+        white-space: nowrap;
     }
-    div{
-        display:inline;
-        margin:0 6px;
+    .member-name{
+        width:100%;
     }
-    .absent-table{
-        text-align: center;
-        width:60px;
-    }
+    //margin:0 auto;
+    //font-size:19px;
+    //width:600px;
+    //.row{
+        //margin:23px 0px;
+        //display:inline-block;
+    //}
+    //.commands{
+        //float:right;
+    //}
+    //div{
+        //display:inline;
+        //margin:0 6px;
+    //}
+    //.absent-table{
+        //text-align: center;
+        //width:60px;
+    //}
 }
 .candidate{
     background-color: #fff;

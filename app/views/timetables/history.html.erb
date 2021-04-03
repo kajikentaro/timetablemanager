@@ -3,14 +3,14 @@
 </div>
 <div class='member'>
 <h2>提出履歴</h2>
+<table class="table"><tbody>
 <% @timetables.each do |timetable| %>
-  <div class="row">
-    <div class="member-name"><%= timetable.name %></div>
-    <div class='commands'>
-      <div><%= link_to '見る', tt_show_url(@party.public_uid, timetable) %></div>
-      <div><%= link_to '編集', tt_edit_url(@party, timetable) %></div>
-      <div><%= link_to '削除', tt_destroy_url(@party, timetable), method: :delete, data: { confirm: 'Are you sure?' } %></div>
-    </div>
-  </div>
+  <tr class="row">
+    <td class="member-name"><%= timetable.name %></td>
+    <td class="ta-right"><%= link_to '見る', tt_show_url(@party.public_uid, timetable) %></td>
+    <td class="ta-right"><%= link_to '編集', tt_edit_url(@party, timetable) %></td>
+    <td class="ta-right"><%= link_to '削除', tt_destroy_url(@party, timetable), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
 <% end %>
+</tbody></table>
 </div>
