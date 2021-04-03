@@ -36,7 +36,7 @@ function setViewGatherAction(){
         document.getElementById("subject" + i).addEventListener('click',function(){
             var keep_i = i;
             var go_view_gather = ()=>{
-                location.href = "./view_gather/" + keep_i;
+                location.href = "../view_gather/" + keep_i;
             }
             return go_view_gather;
         }());
