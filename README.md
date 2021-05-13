@@ -1,24 +1,4 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 時間割マネージャー
+URL https://ttmanager.kajindowsxp.com
+部活動やサークル活動で役立つ、時間割管理サービス。
+団体ごとの専用ページに個人の時間割を提出することで、集計、分析を行います。
