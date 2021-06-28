@@ -4,7 +4,7 @@
 </div>
 <div class="textBox">
     <%= form_with url:tt_new_url, method: :get, class: 'name-form' do |form|%>
-        <%= form.text_field :name, {class: 'name-field', placeholder: '名前を入力'}%><%= form.submit "OK" ,class: "button submit-name"%>
+        <%= form.text_field :name, {class: 'name-field', placeholder: '名前を入力'}%><%= form.submit "OK" ,class: "ok-button button submit-name"%>
     <% end%>
     <%= view_history%><%= view_result%>
     <%=go_setting%><%= view_distribution%>
@@ -31,14 +31,14 @@ header{
 background-color:#4a76f3;
 }
 .textBox{
-background-color: #5fdaf6;
+background-color: #4a76f3;
 background-position: right bottom;
 bground-image:url(#{asset_path "bora.png"});"%>
 background-repeat: no-repeat;
 background-attachment: fixed;
 }
 .button{
-background-color:#4a76f3;
+background-color:#4974a5;
 }
 .contents{
     position:relative;
@@ -48,6 +48,9 @@ background-color:#4a76f3;
     background-image:url(<%=asset_path "bora.png"%>);
     bottom:0;
     right:0;
+}
+.ok-button{
+    background-color:#dc03c1;
 }
 </style>
 <%end%>
