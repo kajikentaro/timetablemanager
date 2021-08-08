@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  */
+$media-sp: 900px;
+$color-1: #64c0ab;
+$color-2: #4d4398;
+$color-3: #e85298;
+$color-4: #f6f6f6;
 body{
     margin:0px;
     font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
@@ -27,7 +32,7 @@ h2,h3{
     text-align:left;
 }
 header{
-    background-color:#6b8;
+    background-color: $color-1;
     text-align: center;
     color: #fff;
 }

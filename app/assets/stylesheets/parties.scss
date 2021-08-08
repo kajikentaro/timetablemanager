@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 $media-sp: 900px;
+$color-1: #64c0ab;
+$color-2: #4d4398;
+$color-3: #e85298;
+$color-4: #f6f6f6;
 @mixin sp {
   @media only screen and (max-width: $media-sp) {
     @content;

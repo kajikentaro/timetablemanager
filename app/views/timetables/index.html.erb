@@ -2,28 +2,56 @@
 <h1><%=@party.name%></h1>
 <p class="center">日程調節のため、時間割の提出をお願いします。名前を入力後、OKを押してください</p>
 </div>
-<div class="textBox">
+<div class="band">
+<div class="operation-box">
     <%= form_with url:tt_new_url, method: :get, class: 'name-form' do |form|%>
         <%= form.text_field :name, {class: 'name-field', placeholder: '名前を入力'}%><%= form.submit "OK" ,class: "ok-button button submit-name"%>
     <% end%>
-    <%= view_history%><%= view_result%>
-    <%=go_setting%><%= view_distribution%>
-    <%=go_home%>
+    <div class='button2'>
+        <a class='button icon-button half' href='<%=url_for(action: :history)%>'>
+        <i class='fas fa-history fa-2x icon'></i><br>
+        提出一覧を見る
+        </a>
+        <a class='button icon-button half' href='<%=url_for(action: :result)%>'>
+        <i class='fas fa-stream fa-2x icon'></i><br>
+        候補を見る
+        </a>
+    </div>
+    <div class='button2'>
+        <a class='button icon-button half' href='<%=url_for(action: :setting)%>'>
+        <i class='fas fa-user-edit fa-2x icon'></i><br>
+        グループを編集
+        </a>
+        <a class='button icon-button half' href='<%=url_for(action: :distribution)%>'>
+        <i class='fas fa-search fa-2x icon'></i><br>
+        分布を見る
+        </a>
+    </div>
+    <div class='button1'>
+        <a class='button icon-button half' href='<%=url_for(controller: :application, action: :index)%>'>
+        <i class='fas fa-home fa-2x icon'></i><br>
+        ホームへ
+        </a>
+    </div>
 </div>
-<!--
-<h3>更新履歴</h3>
-<p>4月4日</p>
-<p>　　暫定履歴で既にひとコマのみに該当した時間は以降表示しないように変更</p>
-<p>　　デザインの改修</p>
-<p>　　<del>無料サーバーを使ってるのでスマホからの閲覧は広告が表示されると思います</del></p>
-<p>4月7日</p>
-<p>　　サーバーの変更</p>
-<p>5月1日</p>
-<p>　　バグ修理</p>
-<p>5月4日</p>
-<p>　　バグ修理</p>
-<p>　　分布機能追加</p>
--->
+</div>
+<div class="sns-share ss-col-3 bc-brand-color sbc-hide ss-bottom">
+    <div class="sns-share-message">シェアする</div>
+    <div class="sns-share-buttons sns-buttons">
+        <%@text="TimeTableManager https://ttmanager.kajindowsxp.com"%>
+        <a href="https://twitter.com/intent/tweet?text=<%=@text%>" class="share-button">
+        <i class="fab fa-twitter"></i>
+        Twitter
+        </a>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkajindowsxp.com%2Fport-rooting%2F&amp;t=Apache%E3%81%AE%E3%83%AA%E3%83%90%E3%83%BC%E3%82%B9%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E3%81%A7443%E3%83%9D%E3%83%BC%E3%83%88%E3%82%92docker%E3%81%AE%E4%BB%BB%E6%84%8F%E3%83%9D%E3%83%BC%E3%83%88%E3%81%AB%E8%BB%A2%E9%80%81%E3%81%99%E3%82%8B" class="share-button facebook-button facebook-share-button-sq" target="_blank" rel="nofollow noopener noreferrer"><span class="social-icon icon-facebook"></span><span class="button-caption">Facebook</span><span class="share-count facebook-share-count"></span></a>
+        <a href="//b.hatena.ne.jp/entry/s/kajindowsxp.com/port-rooting/" class="share-button hatebu-button hatena-bookmark-button hatebu-share-button-sq" data-hatena-bookmark-layout="simple" title="Apacheのリバースプロキシで443ポートをdockerの任意ポートに転送する" target="_blank" rel="nofollow noopener noreferrer"><span class="social-icon icon-hatena"></span><span class="button-caption">はてブ</span><span class="share-count hatebu-share-count"></span></a>
+        <a href="//getpocket.com/edit?url=https://kajindowsxp.com/port-rooting/" class="share-button pocket-button pocket-share-button-sq" target="_blank" rel="nofollow noopener noreferrer"><span class="social-icon icon-pocket"></span><span class="button-caption">Pocket</span><span class="share-count pocket-share-count"></span></a>
+        <a href="//timeline.line.me/social-plugin/share?url=https%3A%2F%2Fkajindowsxp.com%2Fport-rooting%2F" class="share-button line-button line-share-button-sq" target="_blank" rel="nofollow noopener noreferrer"><span class="social-icon icon-line"></span><span class="button-caption">LINE</span><span class="share-count line-share-count"></span></a>
+        <a href="" class="share-button copy-button copy-share-button-sq" rel="nofollow noopener noreferrer" data-clipboard-text="Apacheのリバースプロキシで443ポートをdockerの任意ポートに転送する https://kajindowsxp.com/port-rooting/"><span class="social-icon icon-copy"></span><span class="button-caption">コピー</span><span class="share-count copy-share-count"></span></a>
+    </div>
+</div>
+
+
 <%if @party.name.include?("りこボラ") then%>
 <%=image_tag 'bora.png', class:"illustration"%>
 <style>

@@ -1,4 +1,3 @@
-<p class="center">あなたの団体の雛形が作成されました</p>
 <div class="textBox">
   <div class='url-holder'>
     <div class='left'>
@@ -6,9 +5,21 @@
       <p>提出用ページのリンクです。仲間に共有して、時間割を提出してもらいましょう。</p>
     </div>
     <input value=<%=tt_index_url(@party)%> class='home-url' id='home-url' readonly><br>
-    <button class='button' id='visit-home-url'>GO</button><button class='button' id='copy-home-url'>コピー</button><button class='button' id='share-home-url'>LINEで共有</button>
+    <button class='button icon-button' id='visit-home-url'>
+      <i class="fas fa-running fa-2x icon"></i><br>
+      GO
+    </button>
+    <button class='button icon-button' id='copy-home-url'>
+      <i class="fas fa-copy fa-2x icon"></i><br>
+      コピー
+    </button>
+    <button class='button icon-button' id='share-home-url'>
+      <i class="fab fa-line fa-2x icon"></i><br>
+      LINEで共有
+    </button>
   </div>
 </div>
+<p class="center">あなたの団体の雛形が作成されました</p>
 <!--
 <div class='group-make' id='group-make'>
   <div class='url-holder'>

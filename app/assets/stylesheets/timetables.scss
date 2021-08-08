@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 $media-sp: 900px;
+$color-1: #64c0ab;
+$color-2: #4d4398;
+$color-3: #e85298;
+$color-4: #f6f6f6;
+
 @mixin sp {
   @media only screen and (max-width: $media-sp) {
     @content;
@@ -10,16 +15,16 @@ $media-sp: 900px;
 .contents{
     max-width: 1000px;
     margin:0 auto;
-    background-color: #f6f6f6;
-    padding:20px;
+    background-color: $color-4;
+    padding-top:20px;
     @include sp{
         padding: 20px 0;
     }
 }
 .button{
     height:60px;
-    background-color:#447758;
-    color:#fff;
+    background-color: $color-2;
+    color: #fff;
     margin:15px;
     font-size:25px;
     border:solid #fff 2px;
@@ -29,26 +34,45 @@ $media-sp: 900px;
     line-height:25px;
     display:inline-block;
     vertical-align:top;
+    text-decoration: none;
+    box-sizing:border-box;
     &:hover{
-        opacity: 0.7;
+        background-color:$color-3;
+    }
+    &:visited{
+        color:#fff;
     }
     @include sp{
         font-size:18px;
     }
 }
+.icon-button{
+    padding:10px;
+    height:auto;
+}
+.icon{
+    margin:15px;
+}
 form{
     display:inline;
     margin: 0 auto;
 }
-.full{
+.half{
     width:calc(50% - 30px);
 }
-.half{
-    width:calc(30% - 30px);
-}
-.textBox{
+.button1{
     text-align: center;
-    background-color: #93d9af;
+}
+.button2{
+    display: flex;
+    flex-wrap: wrap;
+}
+.band{
+    width:100%;
+    background-color: $color-1;
+}
+.operation-box{
+    text-align: center;
     width:600px;
     margin:0 auto;
     padding: 30px;

@@ -7,9 +7,6 @@ module TimetablesHelper
         return button_to "最初に戻る", {controller: 'timetables', action: 'index'}, {method: :get, params:{num1:'fromTM'},class: 'button full'}
     end
 
-    def view_history
-        return button_to "提出一覧を見る", {controller: 'timetables', action: 'history'}, {method: :get, params:{num1:'fromTM'},class: 'button full'}
-    end
 
     def view_result
         return button_to "候補を見る", {controller: 'timetables', action: 'result'}, {method: :get, params:{num1:'fromTM'},class: 'button full'}
@@ -29,5 +26,9 @@ module TimetablesHelper
 
     def go_setting
         return button_to "グループを編集", {controller: 'timetables', action: 'setting'}, {method: :get, params:{num1:'fromTM'},class: 'button full'}
+    end
+
+    def view_history
+        return button_to "提出一覧を見る", {controller: 'timetables', action: 'history'}, {method: :get, params:{num1:'fromTM'},class: 'button full'}
     end
 end
