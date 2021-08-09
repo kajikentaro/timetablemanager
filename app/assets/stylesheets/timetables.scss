@@ -57,6 +57,9 @@ form{
     display:inline;
     margin: 0 auto;
 }
+.third{
+    width:calc(33% - 30px);
+}
 .half{
     width:calc(50% - 30px);
 }
@@ -83,6 +86,9 @@ form{
     .button3{
         width:100%;
         text-align: center;
+        display: flex;
+        justify-content: center; 
+        flex-wrap: wrap;
     }
     .share-button{
         box-sizing: border-box;
@@ -91,7 +97,6 @@ form{
         text-align: center;
         line-height: 45px;
         font-size: 16px;
-        display: inline-block;
         text-decoration: none;
         margin:8px;
         color:#fff;
@@ -100,6 +105,10 @@ form{
         }
         &:hover{
             opacity:0.7;
+        }
+        @include sp{
+            margin:4px;
+            width:calc( 33% - 8px);
         }
     }
     .twitter{
