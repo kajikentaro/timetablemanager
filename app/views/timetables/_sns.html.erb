@@ -1,0 +1,37 @@
+<div class="sns-share">
+    <div class="share-buttons">
+        <div class="sns-share-message">シェアする</div>
+        <%@text="TimeTableManager"%>
+        <%@url=CGI.escape("https://ttmanager.kajindowsxp.com")%>
+        <%@url2="ttmanager.kajindowsxp.com"%>
+        <%@url3="https://ttmanager.kajindowsxp.com"%>
+        <div class="button3">
+            <a href="https://twitter.com/intent/tweet?text=<%=@text%>&amp;url=<%=@url%>" class="share-button twitter">
+            <i class="fab fa-twitter"></i>
+            Twitter
+            </a>
+            <a href="//www.facebook.com/sharer/sharer.php?u=<%=@url%>&amp;t=<%=@text%>" class="share-button facebook">
+            <i class="fab fa-facebook"></i>
+            Facebook
+            </a>
+            <a href="//b.hatena.ne.jp/entry/s/<%=@url2%>" class="share-button hatebu">
+            <i class="fab fa-hatebu"></i>
+            はてブ
+            </a>
+        </div>
+        <div class="button3">
+            <a href="//getpocket.com/edit?url=<%=@url%>" class="share-button pocket">
+            <i class="fab fa-pocket"></i>
+            Pocket
+            </a>
+            <a href="//timeline.line.me/social-plugin/share?url=<%=@url%>" class="share-button line">
+            <i class="fab fa-line"></i>
+            LINE
+            </a>
+            <a class="share-button copy" onclick="if(navigator.clipboard){navigator.clipboard.writeText('<%=@url3%>');}">
+            <i class="far fa-copy"></i>
+            コピー
+            </a>
+        </div>
+    </div>
+</div>
