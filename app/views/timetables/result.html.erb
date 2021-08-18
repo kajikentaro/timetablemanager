@@ -1,11 +1,20 @@
 <div class="center">
 <%= go_home_button%>
 </div>
+<h3>現時点で提出済みの時間割から、全員が来れる候補を表示しています</h3>
+<h3 id="message"></h3>
 <input type=checkbox>一覧表示
 <div class="table-display">
+	<div class="center seeker" id="seeker">
+		<i class="fas fa-caret-square-left" id="previous" style="display:none"></i>
+		<i class="far fa-caret-square-left" id="previous-ban"></i>
+		<span><div id="can-id-text" style="display:inline">候補 1</div><span>
+		<i class="fas fa-caret-square-right" id="next"></i>
+		<i class="far fa-caret-square-right" id="next-ban" style="display:none"></i>
+	</div>
 	<% row = @times_str.length%>
 	<% col = @dates_str.length%>
-	<div class="timetable">
+	<div class="timetable" id="timetable">
 		<div class="row">
 			<div class="date"></div>
 			<% @dates_str.each do |d| %>
@@ -21,16 +30,8 @@
 		</div>
 		<% end %>
 	</div>
-	<div class="center seeker">
-		<i class="fas fa-caret-square-left" id="previous" style="display:none"></i>
-		<i class="far fa-caret-square-left" id="previous-ban"></i>
-		<span><div id="can-id-text" style="display:inline">候補 1</div><span>
-		<i class="fas fa-caret-square-right" id="next"></i>
-		<i class="far fa-caret-square-right" id="next-ban" style="display:none"></i>
-	</div>
 </div>
 <div class="list-display" style="display:none">
-	<h3>現時点で提出済みの時間割から、全員が来れる候補を表示しています<br>クリックで誰が来れるかを表示します</h3>
 	<div id='timetables' data-json='<%=@timetables.to_json%>'></div>
 	<div id='once'>
 	<h3>ひとコマのみ</h3>

@@ -16,6 +16,7 @@ window.onload = ()=>{
     calcOnce();
     calcTwice();
 
+    document.getElementById("message").innerHTML = candidateList.length + "個の候補が見つかりました。"
     // クリックアクションの定義
     setClickSubjectAction();
     setSeekbarClickAction();
@@ -34,6 +35,7 @@ function resetTT(){
 function displayCandidate(n){
     let cand = candidateList[n];
     for(let i=0;i<cand.size;i++){
+        console.log(cand);
         let cls = cand.classes[i];
         let target = document.getElementById("subject" + cls.id);
         target.innerHTML = cls.cnt;
@@ -63,41 +65,62 @@ function setClickSubjectAction(){
         }());
     }
 }
+const previousBtn = document.getElementById("previous");
+const nextBtn = document.getElementById("next");
+const previousBtnBan = document.getElementById("previous-ban");
+const nextBtnBan = document.getElementById("next-ban");
+const idText = document.getElementById("can-id-text");
+const tt = document.getElementById("timetable");
+const seeker = document.getElementById("seeker");
+function next_page(){
+    if(showing_id === candidateList.length - 1){
+        console.log(showing_id);
+        return;
+    }
+    showing_id++;
+    setDisableOrEnableBtn();
+    resetTT();
+    displayCandidate(showing_id);
+    idText.innerHTML = "候補 " + (showing_id+1);
+}
+function previous_page(){
+    if(showing_id === 0)return;
+    showing_id--;
+    setDisableOrEnableBtn();
+    resetTT();
+    displayCandidate(showing_id);
+    idText.innerHTML = "候補 " + (showing_id+1);
+}
+function setDisableOrEnableBtn(){
+    if(showing_id === 0){
+        previousBtn.style.display = "none";
+        previousBtnBan.style.display = "inline";
+    }else{
+        previousBtn.style.display = "inline";
+        previousBtnBan.style.display = "none";
+    }
+    if(showing_id === candidateList.length - 1){
+        nextBtn.style.display = "none";
+        nextBtnBan.style.display = "inline";
+    }else{
+        nextBtn.style.display = "inline";
+        nextBtnBan.style.display = "none";
+    }
+}
 function setSeekbarClickAction(){
-    const previousBtn = document.getElementById("previous");
-    const nextBtn = document.getElementById("next");
-    const previousBtnBan = document.getElementById("previous-ban");
-    const nextBtnBan = document.getElementById("next-ban");
-    const idText = document.getElementById("can-id-text");
-    previousBtn.addEventListener("click",()=>{
-        showing_id--;
-        setDisableOrEnableBtn();
-        resetTT();
-        displayCandidate(showing_id);
-        idText.innerHTML = "候補 " + (showing_id+1);
-    });
-    nextBtn.addEventListener("click",()=>{
-        showing_id++;
-        setDisableOrEnableBtn();
-        resetTT();
-        displayCandidate(showing_id);
-        idText.innerHTML = "候補 " + (showing_id+1);
-    });
-    function setDisableOrEnableBtn(){
-        if(showing_id === 0){
-            previousBtn.style.display = "none";
-            previousBtnBan.style.display = "inline";
-        }else{
-            previousBtn.style.display = "inline";
-            previousBtnBan.style.display = "none";
+    previousBtn.addEventListener("click",previous_page);
+    nextBtn.addEventListener("click",next_page);
+    tt.addEventListener("wheel",wheelAction);
+    seeker.addEventListener("wheel",wheelAction);
+    function wheelAction(e){
+        if(e.deltaY > 0){
+            next_page();
         }
-        if(showing_id === candidateList.length - 1){
-            nextBtn.style.display = "none";
-            nextBtnBan.style.display = "inline";
-        }else{
-            nextBtn.style.display = "inline";
-            nextBtnBan.style.display = "none";
+        if(e.deltaY < 0){
+            previous_page();
         }
+        e.preventDefault();
+        e.stopPropagation();
     }
 }
 function calcOnce(){
@@ -133,6 +156,8 @@ function calcTwice(){
     let n = 0;
     for(let i=0;i<row*col-1;i++){
         for(let j=i+1;j<row*col;j++){
+            // 1コマのみに該当する場合はスキップ。
+            if(free_man_table[i] >= timetables.length || free_man_table[j] >= timetables.length)continue;
             let can = true;
             timetables.forEach(e => {
                 if(e.timetable[i] == 1 && e.timetable[j] == 1)can = false;
@@ -141,9 +166,9 @@ function calcTwice(){
                 let person_num1 = free_man_table[i];
                 let person_num2 = free_man_table[j];
                 candidateList.push(
-                    {size:1, classes:[
+                    {size:2, classes:[
                         {id:i,cnt:person_num1,color:component.getColorCode(person_num1,timetables.length)},
-                        {id:i,cnt:person_num2,color:component.getColorCode(person_num2,timetables.length)}
+                        {id:j,cnt:person_num2,color:component.getColorCode(person_num2,timetables.length)}
                     ]});
                 n++;
                 let new_element = document.createElement("p");
