@@ -254,6 +254,18 @@ form{
         //width:60px;
     //}
 }
+.seeker{
+    //候補を切り替えする時のシークボタン
+    padding:20px;
+    font-size:30px;
+    #previous:hover, #next:hover{
+        color:$color-3;
+    }
+    #previous-ban, #next-ban{
+        opacity:0.5;
+    }
+    user-select: none;
+}
 .candidate{
     background-color: #fff;
     border:solid #447758 2px;
