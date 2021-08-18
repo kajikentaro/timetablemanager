@@ -15,9 +15,9 @@ function start(){
     document.getElementById("message").innerHTML = component.getDateTime(class_num,party.dates, party.times) + "の参加状況";
     for(var i=0;i<timetables.length;i++){
         if(timetables[i].timetable[class_num] == 0){
-            document.getElementsByClassName("absent")[i].innerHTML = "○"
+            document.getElementsByClassName("absent")[i].innerHTML = '<i class="far fa-circle"></i>'
         }else{
-            document.getElementsByClassName("absent")[i].innerHTML = "×"
+            document.getElementsByClassName("absent")[i].innerHTML = '<i class="fas fa-times"></i>'
         }
     }
 }
