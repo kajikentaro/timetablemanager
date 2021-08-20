@@ -247,24 +247,9 @@ form{
     .member-name{
         width:100%;
     }
-    //margin:0 auto;
-    //font-size:19px;
-    //width:600px;
-    //.row{
-        //margin:23px 0px;
-        //display:inline-block;
-    //}
-    //.commands{
-        //float:right;
-    //}
-    //div{
-        //display:inline;
-        //margin:0 6px;
-    //}
-    //.absent-table{
-        //text-align: center;
-        //width:60px;
-    //}
+}
+#view-list-toggle{
+
 }
 .seeker{
     //候補を切り替えする時のシークボタン
@@ -288,9 +273,9 @@ form{
     font-size:20px;
     transition: all 0.3s ease 0s;
     padding:5px;
-    &:hover{
-        background-color: #6b8;
-    }
+}
+.hilite:hover{
+    background-color: #6b8;
 }
 .group-make, .group-filter-parent{
     text-align: center;

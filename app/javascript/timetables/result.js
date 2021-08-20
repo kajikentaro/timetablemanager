@@ -20,6 +20,7 @@ window.onload = ()=>{
     // クリックアクションの定義
     setClickSubjectAction();
     setSeekbarClickAction();
+    setListViewToggleAction();
 
     // 候補1の描写
     resetTT();
@@ -35,7 +36,6 @@ function resetTT(){
 function displayCandidate(n){
     let cand = candidateList[n];
     for(let i=0;i<cand.size;i++){
-        console.log(cand);
         let cls = cand.classes[i];
         let target = document.getElementById("subject" + cls.id);
         target.innerHTML = cls.cnt;
@@ -107,6 +107,31 @@ function setDisableOrEnableBtn(){
         nextBtnBan.style.display = "none";
     }
 }
+function setListViewToggleAction(){
+    let viewListToggle = document.getElementById("view-list-toggle");
+    let listWrapper = document.getElementById("candidate-list-wrapper");
+    let tableWrapper = document.getElementById("table-display-wrapper");
+    let checkboxFalse = document.getElementById("checkbox-false");
+    let checkboxTrue = document.getElementById("checkbox-true");
+    viewListToggle .addEventListener("click",applyToggle);
+    applyToggle();
+    function applyToggle(){
+        console.log(viewListToggle.dataset.checked);
+        if(viewListToggle.dataset.checked === "1"){
+            listWrapper.style.display = "block";
+            tableWrapper.style.display = "none";
+            viewListToggle.dataset.checked = "0";
+            checkboxFalse.style.display = "none";
+            checkboxTrue.style.display = "inline";
+        }else{
+            listWrapper.style.display = "none";
+            tableWrapper.style.display = "block";
+            viewListToggle.dataset.checked = "1";
+            checkboxFalse.style.display = "inline";
+            checkboxTrue.style.display = "none";
+        }
+    }
+}
 function setSeekbarClickAction(){
     previousBtn.addEventListener("click",previous_page);
     nextBtn.addEventListener("click",next_page);
@@ -142,7 +167,7 @@ function calcOnce(){
                 }
                 return go_view_gather;
             }());
-            new_element.className = 'candidate';
+            new_element.className = 'candidate hilite';
             new_element.innerHTML = component.getDateTime(i,party.dates, party.times);
             let anchor = document.getElementById('anchor-once');
             document.getElementById('once').insertBefore(new_element, anchor);
@@ -172,6 +197,7 @@ function calcTwice(){
                     ]});
                 n++;
                 let new_element = document.createElement("p");
+                /*
                 new_element.addEventListener('click',function(){
                     let keep_i = i;
                     let keep_j = j;
@@ -180,6 +206,7 @@ function calcTwice(){
                     }
                     return go_view_gather;
                 }());
+                */
                 new_element.className = 'candidate';
                 new_element.innerHTML = component.getDateTime(i,party.dates, party.times) + '&' + component.getDateTime(j,party.dates, party.times);
                 let anchor = document.getElementById('anchor-twice');

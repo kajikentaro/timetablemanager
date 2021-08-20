@@ -3,8 +3,8 @@
 </div>
 <h3>現時点で提出済みの時間割から、全員が来れる候補を表示しています</h3>
 <h3 id="message"></h3>
-<input type=checkbox>一覧表示
-<div class="table-display">
+<p id="view-list-toggle" data-checked=0 style="display:inline;"><i class="far fa-square" id="checkbox-false"></i><i class="fas fa-check-square" id="checkbox-true"></i> 一覧表示</p>
+<div class="table-display" id="table-display-wrapper">
 	<div class="center seeker" id="seeker">
 		<i class="fas fa-caret-square-left" id="previous" style="display:none"></i>
 		<i class="far fa-caret-square-left" id="previous-ban"></i>
@@ -31,7 +31,7 @@
 		<% end %>
 	</div>
 </div>
-<div class="list-display" style="display:none">
+<div class="list-display" style="display:none" id="candidate-list-wrapper">
 	<div id='timetables' data-json='<%=@timetables.to_json%>'></div>
 	<div id='once'>
 	<h3>ひとコマのみ</h3>
