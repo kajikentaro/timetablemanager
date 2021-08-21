@@ -1,4 +1,10 @@
 console.log('I am component.js');
+export let applyResponsiveTT = function(col_num){
+    let split_n = col_num + 1;
+    window.addEventListener('resize',resize(document.getElementsByClassName('subject'), split_n), false);
+    window.addEventListener('resize',resize(document.getElementsByClassName('time'), split_n), false);
+    window.addEventListener('resize',resize(document.getElementsByClassName('date'), split_n), false);
+}
 export var resize=function(elements, split_n){
     var resize_func = ()=>{
         var screen_width = document.body.clientWidth;
@@ -47,7 +53,7 @@ export function getTTs(){
     timetables.forEach(e => {
         e.timetable = JSON.parse(e.timetable);
     });
-    if(timetables.length == 0)return;
+    if(timetables.length == 0)return [];
     return timetables;
 }
 export function getDateTime(n,dates,times){

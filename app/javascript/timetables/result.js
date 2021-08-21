@@ -9,22 +9,31 @@ let showing_id = 0;
 window.onload = ()=>{
     // 候補の計算
     party = component.getParty();
-    timetables = component.getTTs();
     row = party.times.length;
     col = party.dates.length;
-    free_man_table = getDistribution();
-    calcOnce();
-    calcTwice();
 
-    document.getElementById("message").innerHTML = candidateList.length + "個の候補が見つかりました。"
+    timetables = component.getTTs();
+    if(timetables.length){ 
+        free_man_table = getDistribution();
+        calcOnce();
+        calcTwice();
+
+        document.getElementById("message").innerHTML = candidateList.length + "個の候補が見つかりました。"
+
+        // 候補1の描写
+        resetTT();
+        displayCandidate(0);
+        
+        setSeekbarClickAction();
+    }else{
+        document.getElementById("message").innerHTML = "まだ時間割が提出されていません";
+    }
+
     // クリックアクションの定義
     setClickSubjectAction();
-    setSeekbarClickAction();
     setListViewToggleAction();
 
-    // 候補1の描写
-    resetTT();
-    displayCandidate(0);
+    component.applyResponsiveTT(col);
 }
 function resetTT(){
     let targets = document.getElementsByClassName("distribution");

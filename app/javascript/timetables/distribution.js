@@ -22,12 +22,7 @@ window.onload = ()=>{
     group.setup_filter(TT_filter);
 
     //responsive design
-    responsive_design(col+1);
-}
-function responsive_design(split_n){
-    window.addEventListener('resize',component.resize(document.getElementsByClassName('subject'), split_n), false);
-    window.addEventListener('resize',component.resize(document.getElementsByClassName('time'), split_n), false);
-    window.addEventListener('resize',component.resize(document.getElementsByClassName('date'), split_n), false);
+    component.applyResponsiveTT(col);
 }
 //フィルターのステータスが変わったら呼ばれる
 function TT_filter(filter_list){
