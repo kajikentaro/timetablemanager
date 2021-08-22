@@ -1,28 +1,27 @@
 <div class='center'>
-<%= go_home_button%>
-
-<p><%= @timetables.length%> 人提出済み</p>
-<p>「暇」の数を表示しています</p>
-
-
+  <%= go_home_button%>
+  <p><%= @timetables.length%> 人提出済み</p>
+  <p>「暇」の数を表示しています</p>
+</div>
 <% row = @times_str.length%>
 <% col = @dates_str.length%>
-
 <div class="timetable">
-    <div class="row">
-        <div class="date"></div>
-        <% @dates_str.each do |d| %>
-        <div class="date"><%= d%></div>
-        <% end %>
-</div>
-    <% row.times do |i| %>
-    <div class="row">
-        <div class="time"><%= @times_str[i]%></div>
-        <% col.times do |j|%>
-            <div class="subject"><div class='distribution' id="<%=("subject" + (i * col +  j).to_s)%>"></div></div>
-        <% end %>
-    </div>
+  <div class="row">
+    <div class="date"></div>
+    <% @dates_str.each do |d| %>
+      <div class="date"><%= d%></div>
     <% end %>
+  </div>
+  <% row.times do |i| %>
+    <div class="row">
+      <div class="time"><%= @times_str[i]%></div>
+      <% col.times do |j|%>
+        <div class="subject">
+          <div class='distribution' id="<%=("subject" + (i * col +  j).to_s)%>"></div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 <%=render partial:'group'%>
 <div id='row-col-num' data-json=<%={'row' => row, 'col' => col}.to_json%>></div>
@@ -32,4 +31,3 @@
 <div id='party' data-json='<%=@party.to_json%>'></div>
 <div id='changeable' data-json='<%=@changeable%>'></div>
 <%= javascript_pack_tag 'timetables/distribution'%>
-
