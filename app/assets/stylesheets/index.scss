@@ -7,6 +7,11 @@ $media-sp: 900px;
     @content;
   }
 }
+.index-bg{
+    background-image: url(index-back.jpg);
+    background-color:rgba(255,255,255,0.45);
+    background-blend-mode:lighten;
+}
 .index-main{
     max-width: 1300px;
     margin:0 auto;
@@ -20,17 +25,38 @@ $media-sp: 900px;
         flex-direction: column;
         width:50%;
         h1{
+            text-shadow    : 
+                2px  2px 1px #fff,
+                -2px  2px 1px #fff,
+                2px -2px 1px #fff,
+                -2px -2px 1px #fff,
+                2px  0px 1px #fff,
+                0px  2px 1px #fff,
+                -2px  0px 1px #fff,
+                0px -2px 1px #0fff,
+        }
+        .h1-1{
             text-align: center;
-            margin:0;
+            margin:-9px;
+            font-size:2.5em;
+            line-height:normal;
+        }
+        .h1-2{
+            margin:0px;
+            text-align: center;
+            font-size:3em;
+            line-height:normal;
         }
         .message{
-            width:80%;
+            width:85%;
             display:block;
             margin:30px auto;
         }
         button{
             display:block;
             margin:0 auto;
+            background-color:#777;
+            padding:15px;
         }
     }
     .right{
