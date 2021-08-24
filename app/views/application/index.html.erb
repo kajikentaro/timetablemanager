@@ -1,81 +1,89 @@
-<div class="index-bg">
-<div class='index-main'>
-  <div class="left">
-    <h1 class="h1-1">みんなの空きコマが</h1>
-    <h1 class="h1-2">ひと目でわかる</h1>
-    <div class="message">
-      <p>「時間割マネージャー」は、時間割に特化したスケジュール調整サービスです。<br>部活、サークルでの予定合わせにご利用ください。</p>
+<div class="index-title-bg">
+  <div class='index-title'>
+    <div class="left">
+      <h1 class="h1-1">みんなの空きコマが</h1>
+      <h1 class="h1-2">ひと目でわかる</h1>
+      <div class="message">
+        <p>「時間割マネージャー」は、時間割に特化したスケジュール調整サービスです。<br>
+          部活、サークルでの予定合わせにご利用ください。</p>
+      </div>
+      <button class='button icon-button' id='new-TT'>
+        <!--<i class="fas fa-paper-plane fa-3x icon"></i><br>-->
+        時間割を新規作成
+      </button>
     </div>
-
-    <button class='button icon-button' id='new-TT'>
-      <!--<i class="fas fa-paper-plane fa-3x icon"></i><br>-->
-      時間割を新規作成
-    </button>
-  </div>
-  <div class="right">
-    <%=image_tag "mockup-transparent.png"%>
+    <div class="right">
+      <%=image_tag "mockup-transparent.png"%>
+    </div>
   </div>
 </div>
+<div class="index-desc-gb">
+  <div class="index-desc">
+    <div class="left">
+      <%= image_tag '4.png'%>
+    </div>
+    <div class="right">
+      <h1>柔軟な時間割作成</h1>
+      <p>学校ごとに異なる時間割の時間やコマ数に対応し、時間割を自由に編集できます。</p>
+    </div>
+  </div>
 </div>
+<div class="index-desc-gb index-col2">
+  <div class="index-desc">
+    <div class="left">
+      <h1>素早い共有</h1>
+      <p>専用のURLが発行されるため、ログイン不要でアクセスするだけで提出できます</p>
+    </div>
+    <div class="right">
+      <%= image_tag '5.png'%>
+    </div>
+  </div>
+</div>
+<div class="index-desc-gb">
+  <div class="index-desc">
+    <div class="left">
+      <%= image_tag '1.png'%>
+    </div>
+    <div class="right">
+      <h1>提出レイアウト</h1>
+      <p>直感的UIで、時間割を入力します。<br>
+        「暇」はその時間が空いていることを示し、「忙」はその時間は都合が合わないことを表します</p>
+    </div>
+  </div>
+</div>
+<div class="index-desc-gb index-col3">
+  <div class="index-desc">
+    <div class="left">
+      <h1>分布表示</h1>
+      <p>どの時間が何人来れるか、分布を色分け表示します。</p>
+    </div>
+    <div class="right">
+      <%= image_tag '2.png'%>
+    </div>
+  </div>
+</div>
+<div class="index-desc-gb">
+  <div class="index-desc">
+    <div class="left">
+      <%= image_tag '3.png'%>
+    </div>
+    <div class="right">
+      <h1>全探索機能</h1>
+      <p>全員が「暇」な時間を計算します。1コマの場合と、2コマどちらかが「暇」なときの組み合わせを計算し表示します。</p>
+    </div>
+  </div>
+</div>
+<div class="index-desc-gb index-col1">
+  <div class="index-desc">
+    <div class="left">
+      <h1>グループフィルタリング機能</h1>
+      <p>一つの団体の中でもグループ別に集計できます。「グループを編集」ボタンから、グループの追加、削除を行ってください</p>
+    </div>
+    <div class="right">
+      <%= image_tag '6.png'%>
+    </div>
+  </div>
+</div>
+<%=javascript_pack_tag 'index/index'%>
 <a href='https://www.freepik.com/vectors/background'>Background vector created by rawpixel.com - www.freepik.com</a>
 <div id='new-url' data-json=<%=p_index_path%>></div>
-<div class="inner-block">
-  <div class="fade-img-box">
-    <%=image_tag '1', class:'screen-shot'%>
-    <%=image_tag '2', class:'screen-shot'%>
-    <%=image_tag '3', class:'screen-shot'%>
-    <%=image_tag '4', class:'screen-shot'%>
-    <%=image_tag '5', class:'screen-shot'%>
-  </div>
-  <div class="fade-img-box1">
-    <%=image_tag '1', class:'screen-shot'%>
-    <%=image_tag '2', class:'screen-shot'%>
-    <%=image_tag '3', class:'screen-shot'%>
-    <%=image_tag '4', class:'screen-shot'%>
-    <%=image_tag '5', class:'screen-shot'%>
-  </div>
-  <div class="fade-img-box2">
-    <%=image_tag '1', class:'screen-shot'%>
-    <%=image_tag '2', class:'screen-shot'%>
-    <%=image_tag '3', class:'screen-shot'%>
-    <%=image_tag '4', class:'screen-shot'%>
-    <%=image_tag '5', class:'screen-shot'%>
-  </div>
-</div>
-<div class="contents-index">
-  <h1>提出レイアウト</h1>
-  <p>直感的UIで、時間割を入力します。<br>「暇」はその時間が空いていることを示し、「忙」はその時間は都合が合わないことを表します</p>
-    <div class='center'><%=image_tag '5', class:'content-image'%></div>
-  <h1>分布表示</h1>
-  <p>どの時間が何人来れるか、分布を色分け表示します。</p>
-    <div class='center'><%=image_tag '2', class:'content-image'%></div>
-  <h1>グループフィルタリング機能</h1>
-  <p>一つの団体の中でもグループ別に集計できます。「グループを編集」ボタンから、グループの追加、削除を行ってください</p>
-    <div class='center'><%=image_tag '3', class:'content-image'%></div>
-  <h1>全探索機能</h1>
-  <p>全員が「暇」な時間を計算します。1コマの場合と、2コマどちらかが「暇」なときの組み合わせを計算し表示します。</p>
-    <div class='center'><%=image_tag '4', class:'content-image'%></div>
-</div>
-<script>
-  (function(){
-  // 設定
-  var interval =3000; // 切り替わりの間隔（ミリ秒）
-  var fade_speed = 1000;// フェード処理の早さ（ミリ秒）
-  $(".screen-shot").hide();
-  $(".fade-img-box img").eq(0).addClass("active").show();
-  $(".fade-img-box1 img").eq(1).addClass("active").show();
-  $(".fade-img-box2 img").eq(2).addClass("active").show();
-  
-  var changeImage = function(prefix){
-  		var $active = $(prefix + " img.active");
-  		var $next = $active.next("img").length?$active.next("img"):$(prefix + " img:first");
-  
-  		$active.fadeOut(fade_speed).removeClass("active");
-  		$next.fadeIn(fade_speed).addClass("active");
-  }
-  setInterval(changeImage,interval, ".fade-img-box" );
-  setInterval(changeImage,interval, ".fade-img-box1" );
-  setInterval(changeImage,interval, ".fade-img-box2" );
-  }());
-</script>
-<%=javascript_pack_tag 'index/index'%>
