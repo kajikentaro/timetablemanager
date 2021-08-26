@@ -19,7 +19,7 @@ $color-2: #4d4398;
 $color-3: #e85298;
 $color-4: #f6f6f6;
 $color-5: #3d7568;
-$contents-width:1000px;
+$contents-width:900px;
 
 @mixin sp {
   @media only screen and (max-width: $media-sp) {
@@ -79,6 +79,7 @@ body {
 .contents{
     flex-grow: 1;
     width:100%;
+    padding:0 50px;
     max-width: $contents-width;
     margin:0 auto;
     background-color: $color-4;
@@ -91,9 +92,13 @@ body {
     margin:0 auto;
     width:100%;
     max-width: $contents-width;
+    padding:0 50px;
     margin:0 auto;
     background-color: $color-4;
     padding-top:50px;
+    @include sp{
+        padding: 20px 0;
+    }
     .share-buttons{
         display: block;
         width:100%;
