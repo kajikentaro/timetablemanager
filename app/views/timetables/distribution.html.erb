@@ -1,8 +1,8 @@
 <div class='center'>
   <%= go_home_button%>
-  <p><%= @timetables.length%> 人提出済み</p>
-  <p>「暇」の数を表示しています</p>
 </div>
+<p>提出された時間割の「暇」の数の合計を表示しています</p>
+<p><%= @timetables.length%> 人提出済み</p>
 <% row = @times_str.length%>
 <% col = @dates_str.length%>
 <div class="timetable">

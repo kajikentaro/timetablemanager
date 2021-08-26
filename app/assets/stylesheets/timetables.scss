@@ -12,26 +12,16 @@ $color-4: #f6f6f6;
     @content;
   }
 }
-td{
-    font-size:15px;
-}
-p{
-    font-size:15px;
-}
-h3{
-    font-size:17px;
-}
 .button{
     height:60px;
     background-color: $color-2;
     color: #fff;
-    margin:15px;
-    font-size:25px;
+    font-size:1.5rem;
     border:solid #fff 2px;
     border-radius: 3px;
     transition: all 0.3s ease 0s;
     text-align:center;
-    line-height:25px;
+    line-height:1.5rem;
     display:inline-block;
     vertical-align:top;
     text-decoration: none;
@@ -41,9 +31,6 @@ h3{
     }
     &:visited{
         color:#fff;
-    }
-    @include sp{
-        font-size:18px;
     }
 }
 .icon-button{
@@ -58,17 +45,27 @@ form{
     margin: 0 auto;
 }
 .third{
+    margin:15px;
     width:calc(33% - 30px);
+    @include sp{
+        margin: 5px;
+        width: 45%;
+        font-size:1.2rem;
+    }
 }
 .half{
+    margin:15px;
     width:calc(50% - 30px);
+    @include sp{
+        margin: 10px;
+        width:calc(50% - 20px);
+    }
 }
 .button1{
     text-align: center;
 }
 .button2{
     display: flex;
-    flex-wrap: wrap;
 }
 .button3{
     width:100%;
@@ -100,6 +97,9 @@ form{
             box-sizing: border-box;
             margin:15px 0 15px 15px;
             border: solid #fff 2px;
+            @include sp{
+                font-size:27px;
+            }
         }
         > .submit-name{
             margin:15px 15px 15px 10px;
@@ -165,9 +165,6 @@ form{
     .member-name{
         width:100%;
     }
-}
-#view-list-toggle{
-
 }
 .seeker{
     //候補を切り替えする時のシークボタン
@@ -240,6 +237,9 @@ form{
     }
     .open{
         width:60%;
+    }
+    label{
+        display:block;
     }
 }
 select{

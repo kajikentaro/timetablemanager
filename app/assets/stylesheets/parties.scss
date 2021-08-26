@@ -11,11 +11,6 @@ $color-4: #f6f6f6;
     @content;
   }
 }
-@include sp{
-    h1{
-        font-size:18px;
-    }
-}
 .url-holder{
     input{
         height:40px;
