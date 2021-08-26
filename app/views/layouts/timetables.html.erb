@@ -5,6 +5,7 @@
     <title>時間割マネージャー</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta id='root-url' data-json='<%=root_url%>'>
+    <%= favicon_link_tag('favicon.ico') %>
     <script src="https://kit.fontawesome.com/50efd0ad59.js" crossorigin="anonymous"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9049003923441273"
      crossorigin="anonymous"></script>
@@ -25,8 +26,9 @@
     <div class="contents">
       <%= yield %>
     </div>
+    <%=render partial: 'sns'%>
     <footer>
-      <%=render partial: 'sns'%>
+      <%=render partial: 'footer'%>
     </footer>
   </body>
 </html>

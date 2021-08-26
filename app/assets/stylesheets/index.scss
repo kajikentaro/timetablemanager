@@ -13,9 +13,14 @@ $media-sp: 900px;
     background-color:rgba(255,255,255,0.45);
     background-blend-mode:lighten;
 }
-$index-col1:#f3abc5;
-$index-col2:#fff2b2;
-$index-col3:#a7d9dd;
+$index-col1:#eee;
+$index-col2:#eee;
+$index-col3:#eee;
+$index-col4:#eee;
+//$index-col1:#f3abc5;
+//$index-col2:#fff2b2;
+//$index-col3:#a7d9dd;
+//$index-col4:#cfcfcf;
 .index-col1{
     background-color: $index-col1;
 }
@@ -34,6 +39,8 @@ $index-col3:#a7d9dd;
     align-items:center;
     h1{
         margin-bottom: 50px;
+        font-size:2.5em;
+        color:#333;
     }
     .left, .right{
         width:50%;
@@ -42,6 +49,7 @@ $index-col3:#a7d9dd;
         width:70%;
         display: block;
         margin:0 auto;
+        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
     }
 }
 .index-title{
@@ -70,7 +78,7 @@ $index-col3:#a7d9dd;
         .h1-1{
             text-align: center;
             margin:-9px;
-            font-size:2.5em;
+            font-size:2em;
             line-height:normal;
         }
         .h1-2{
@@ -89,6 +97,9 @@ $index-col3:#a7d9dd;
             margin:0 auto;
             background-color:#777;
             padding:15px;
+            &:hover{
+                background-color: $index-col1;
+            }
         }
     }
     .right{
@@ -96,46 +107,5 @@ $index-col3:#a7d9dd;
     }
     img{
         width:70%;
-    }
-}
-.inner-block {
-    display:flex;
-    margin: 0 auto;
-    justify-content: center;
-    .fade-img-box, .fade-img-box1, .fade-img-box2 {
-    width:450px;
-    height:350px;
-    margin-top: 10px;
-    position:relative;
-    }
-    @include sp{
-        .fade-img-box, .fade-img-box2{
-            display:none;
-        }
-    }
-    .screen-shot{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit:cover;
-    }
-}
-.contents-index{
-    max-width:900px;
-    margin:0 auto;
-    h1{
-        margin-top:30px;
-        @include sp{
-            text-align:center;
-        }
-    }
-    .content-image{
-        max-width:500px;
-        text-align:center;
-        @include sp{
-            width:100%;
-        }
     }
 }
