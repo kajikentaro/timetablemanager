@@ -188,11 +188,16 @@ footer{
         .footer-contents-flex{
             display: flex;
             justify-content: space-between;
+            flex-wrap:wrap;
+            div{
+                padding:10px;
+            }
         }
     }
     .footer-message{
         display: flex;
         justify-content: space-between;
         margin:10px 30px 0px 30px;
+        flex-wrap: wrap;
     }
 }

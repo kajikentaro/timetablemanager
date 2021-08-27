@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 $media-sp: 900px;
+@mixin cp{
+  @media only screen and (min-width: $media-sp) {
+    @content;
+  }
+}
 @mixin sp {
   @media only screen and (max-width: $media-sp) {
     @content;
@@ -13,30 +18,19 @@ $media-sp: 900px;
     background-color:rgba(255,255,255,0.45);
     background-blend-mode:lighten;
 }
-$index-col1:#eee;
-$index-col2:#eee;
-$index-col3:#eee;
-$index-col4:#eee;
-//$index-col1:#f3abc5;
-//$index-col2:#fff2b2;
-//$index-col3:#a7d9dd;
-//$index-col4:#cfcfcf;
-.index-col1{
-    background-color: $index-col1;
-}
-.index-col2{
-    background-color: $index-col2;
-}
-.index-col3{
-    background-color: $index-col3;
+$index-col:#eee;
+.index-col{
+    background-color: $index-col;
 }
 .index-desc{
-    max-width: 1300px;
+    max-width: 1200px;
+    padding: 0 50px;
     margin:0 auto;
     height:600px;
     width:100%;
     display:flex;
     align-items:center;
+    box-sizing:border-box;
     h1{
         margin-bottom: 50px;
         font-size:2.5rem;
@@ -49,7 +43,31 @@ $index-col4:#eee;
         width:70%;
         display: block;
         margin:0 auto;
-        box-shadow: 0 0 2rrem rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+    }
+    @include sp{
+        flex-direction: column;
+        padding:20px;
+        height:fit-content;
+        .desc{
+            order:1;
+        }
+        .screenshot{
+            order:2;
+        }
+        .right, .left{
+            width:100%;
+        }
+        img{
+            margin:40px auto;
+        }
+        h1{
+            font-size:1.8rem;
+            margin:auto;
+        }
+        .index-col{
+            background-color: white;
+        }
     }
 }
 .index-title{
@@ -64,42 +82,42 @@ $index-col4:#eee;
         display:flex;
         flex-direction: column;
         width:50%;
-        h1{
-            text-shadow    : 
-                2px  2px 1px #fff,
-                -2px  2px 1px #fff,
-                2px -2px 1px #fff,
-                -2px -2px 1px #fff,
-                2px  0px 1px #fff,
-                0px  2px 1px #fff,
-                -2px  0px 1px #fff,
-                0px -2px 1px #0fff,
-        }
-        .h1-1{
-            text-align: center;
-            margin:-9px;
-            font-size:2rem;
-            line-height:normal;
-        }
-        .h1-2{
-            margin:0px;
-            text-align: center;
-            font-size:3rem;
-            line-height:normal;
-        }
-        .message{
-            width:85%;
-            display:block;
-            margin:30px auto;
-        }
-        button{
-            display:block;
-            margin:0 auto;
-            background-color:#777;
-            padding:15px;
-            &:hover{
-                background-color: $index-col1;
-            }
+    }
+    h1{
+        text-shadow    : 
+            2px  2px 1px #fff,
+            -2px  2px 1px #fff,
+            2px -2px 1px #fff,
+            -2px -2px 1px #fff,
+            2px  0px 1px #fff,
+            0px  2px 1px #fff,
+            -2px  0px 1px #fff,
+            0px -2px 1px #0fff,
+    }
+    .h1-1{
+        text-align: center;
+        margin:-9px;
+        font-size:2rem;
+        line-height:normal;
+    }
+    .h1-2{
+        margin:0px;
+        text-align: center;
+        font-size:3rem;
+        line-height:normal;
+    }
+    .message{
+        width:85%;
+        display:block;
+        margin:30px auto;
+    }
+    button{
+        display:block;
+        margin:0 auto;
+        background-color:#777;
+        padding:15px;
+        &:hover{
+            background-color: $index-col;
         }
     }
     .right{
@@ -107,5 +125,48 @@ $index-col4:#eee;
     }
     img{
         width:70%;
+    }
+    @include sp{
+        padding:0;
+        flex-direction: column;
+        height:fit-content;
+        img{
+            margin:0px auto;
+        }
+        .h1-1{
+            text-align: center;
+            line-height:normal;
+            margin:20px 0 0 0;
+        }
+        .h1-2{
+            margin:-15px 0;
+            margin-top:-10px; 
+            text-align: center;
+            line-height:normal;
+        }
+        .message{
+            width:100%;
+            text-align: left;
+            display:block;
+            margin:0;
+            p{
+                margin:0px 10px;
+            }
+        }
+        .button{
+            margin:40px;
+            background-color:#999;
+        }
+    }
+}
+.responsive-sp{
+    display:none;
+}
+@include sp{
+    .responsive-pc{
+        display:none;
+    }
+    .responsive-sp{
+        display:flex;
     }
 }
