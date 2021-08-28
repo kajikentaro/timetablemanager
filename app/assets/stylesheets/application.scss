@@ -42,6 +42,9 @@ p{
 h2,h3{
     color:#3a3a3a;
 }
+.sp-br{
+    display:none;
+}
 @include sp{
     h1{
         font-size:22px;
@@ -51,6 +54,9 @@ h2,h3{
     }
     p{
         font-size:14px;
+    }
+    .sp-br{
+        display:inline;
     }
 }
 

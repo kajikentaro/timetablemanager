@@ -92,6 +92,7 @@ form{
         > .name-field{
             height:60px;
             font-size:40px;
+            line-height:40px;
             width:calc(100% - 140px);
             vertical-align: middle;
             box-sizing: border-box;
@@ -200,19 +201,26 @@ form{
     }
     margin:0 auto;
     .groups-input{
-        margin:10px;
+        margin:10px 20px;
         height:30px;
         font-size:20px;
+        line-height:20px;
         box-sizing: border-box;
+        width:70%;
+        max-width:340px;
     }
     .row{
         font-size:0px;
-        display: block;
+        display:flex;
+        justify-content: center;
+        align-items: center;
     }
     .delete{
         background-color:rgb(225,174,201);
         height:30px;
         box-sizing: border-box;
+        width:30%;
+        max-width: 60px;
         &:hover{
             opacity:0.6;
         }

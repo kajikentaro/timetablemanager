@@ -1,6 +1,6 @@
 <div class='center'>
 <h1 id="party-name"><%=@party.name%></h1>
-<p class="center">日程調節のため、時間割の提出をお願いします。名前を入力後、OKを押してください</p>
+<p>日程調節のため、時間割の提出をお願いします。<br class="sp-br">名前を入力後、OKを押してください</p>
 </div>
 <div class="band">
 <div class="operation-box">
@@ -27,7 +27,11 @@
         分布を見る
         </a>
     </div>
-    <div class='button1'>
+    <div class='button2'>
+        <a class='button icon-button half' href='<%=url_for(controller: :parties, action: :start)%>'>
+        <i class="fas fa-share-square fa-2x icon"></i><br>
+        共有画面へ
+        </a>
         <a class='button icon-button half' href='<%=url_for(controller: :application, action: :index)%>'>
         <i class='fas fa-home fa-2x icon'></i><br>
         ホームへ
