@@ -1,4 +1,4 @@
-FROM ruby:3.0.0-alpine as builder
+FROM ruby:3.0.6-alpine3.16 as builder
 
 WORKDIR /app
 
@@ -19,7 +19,7 @@ ENV SECRET_KEY_BASE=hogehoge
 RUN bundle exec rails assets:precompile
 
 
-FROM ruby:3.0.0-alpine as main
+FROM ruby:3.0.6-alpine3.16 as main
 WORKDIR /app
 RUN apk add tzdata
 COPY --from=builder /app/vendor /app/vendor
