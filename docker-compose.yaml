@@ -1,0 +1,25 @@
+version: "3.4"
+
+services:
+  dev:
+    container_name: ttmanager_dev
+    working_dir: /app
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    tty: true
+    profiles:
+      - dev
+    ports:
+      - 3000:3000
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+  prod:
+    container_name: ttmanager_prod
+    build:
+      context: .
+    tty: true
+    ports:
+      - 3000:3000
