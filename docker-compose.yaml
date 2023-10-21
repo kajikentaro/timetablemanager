@@ -21,5 +21,9 @@ services:
     build:
       context: .
     tty: true
+    volumes:
+      - type: bind
+        source: ./db/
+        target: /app/db
     ports:
-      - 3000:3000
+      - 4161:3000
