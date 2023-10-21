@@ -1,10 +1,16 @@
-FROM ruby:3.0.6-alpine3.16
+FROM ruby:3.0.6-bullseye as builder
 WORKDIR /app
 
-RUN apk add build-base libxml2-dev libxslt-dev git bash file imagemagick libpq libxml2 libxslt nodejs sqlite-dev tini tzdata yarn
+RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor -o /usr/share/keyrings/nodesource-archive-keyring.gpg \
+    && echo "deb [signed-by=/usr/share/keyrings/nodesource-archive-keyring.gpg] https://deb.nodesource.com/node_16.x bullseye main" > /etc/apt/sources.list.d/nodesource.list \
+    && apt-get update \
+    && apt-get install -y nodejs
+RUN npm install -g yarn
+
 # RUN bundle install
 # RUN bundle exec rails assets:precompile
 # RUN bundle exec rails db:migrate
+# CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
 
 ENTRYPOINT ["sh"]
 EXPOSE 3000

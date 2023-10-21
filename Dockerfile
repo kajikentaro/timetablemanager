@@ -1,4 +1,4 @@
-FROM ruby:3.0.6-alpine3.16 as builder
+FROM ruby:3.0.6-bullseye as builder
 
 WORKDIR /app
 
@@ -7,8 +7,6 @@ ENV NODE_ENV="production"
 RUN bundle config set --local deployment 'true'
 RUN bundle config set --local without 'test development'
 
-RUN apk add build-base libxml2-dev libxslt-dev git bash file imagemagick libpq libxml2 libxslt nodejs sqlite-dev tini tzdata yarn
-
 COPY Gemfile .
 COPY Gemfile.lock .
 
@@ -16,12 +14,18 @@ RUN bundle install
 
 COPY . .
 ENV SECRET_KEY_BASE=hogehoge
+
+RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor -o /usr/share/keyrings/nodesource-archive-keyring.gpg \
+    && echo "deb [signed-by=/usr/share/keyrings/nodesource-archive-keyring.gpg] https://deb.nodesource.com/node_16.x bullseye main" > /etc/apt/sources.list.d/nodesource.list \
+    && apt-get update \
+    && apt-get install -y nodejs
+RUN npm install -g yarn
+
 RUN bundle exec rails assets:precompile
 
 
-FROM ruby:3.0.6-alpine3.16 as main
+FROM ruby:3.0.6-bullseye as main
 WORKDIR /app
-RUN apk add tzdata
 COPY --from=builder /app/vendor /app/vendor
 COPY --from=builder /usr/local/bundle /usr/local/bundle
 COPY --from=builder /app/public /app/public
